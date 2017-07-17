@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">HadithRead</string>
+    <string name="hint_search">Enter text</string>
 </resources>
