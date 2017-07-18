@@ -6,33 +6,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.bingerdranch.android.hadithread.MainActivity"
-    android:background="#f4e4b6">
-    <ImageView
-        android:layout_margin="20dp"
-        android:src="@drawable/logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <LinearLayout
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <EditText
-            android:hint="@string/hint_search"
-            android:id="@+id/search_edit_text"
-            android:layout_width="200dp"
-            android:layout_height="wrap_content"/>
-        <ImageButton
-            android:background="#f4e4b6"
-            android:src="@drawable/lupa_search"
-            android:id="@+id/image_button_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+    android:background="@drawable/backg">
+
+    <ImageButton
+        android:layout_margin="10sp"
+        android:layout_gravity="end"
+        android:layout_width="60sp"
+        android:layout_height="60sp"
+        android:background="@drawable/icon_search"
+        />
     <ListView
+        android:paddingStart="40dp"
         android:layout_marginStart="50dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="170dp"
         android:id="@+id/list_view_books"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
