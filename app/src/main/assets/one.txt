@@ -1,0 +1,9 @@
+This app contains all the hadiths from the Sahih al-Bukhari book.
+Sahih al Bukhari is collection of sayings reported from the beloved Prophet Muhammad (SAW). The App contains many Ahadith to increase your knowledge about Islam and to live a better life following the path of prophet Mohammed (SAW). App contains the collection of Ahadith based on different type of topics of life.Each topic contain many Ahadith narrated by Sahaba (R.A).
+
+Features:
+- Full and Authentic Book.
+- Completely free.
+- Ability to add chapters to favorites.
+- Language selection option.
+- Share option, e.g: Facebook, Gmail, Twitter etc.
