@@ -69,6 +69,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+                intent.putExtra("allBooks",listForBooks); // тут будут передаваться названия всех книг
+                intent.putExtra("allText",textOnFile); // тут будут передаваться весь текст
                 startActivity(intent);
             }
         });
