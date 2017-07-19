@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">HadithRead</string>
     <string name="hint_search">Enter text</string>
+
+    <string name="text_book">Book</string>
+    <string name="text_title">Title</string>
+    <string name="text_word">Word</string>
+
+    <string name="text_book_hint">Enter book name</string>
+    <string name="text_title_hint">Enter title name</string>
+    <string name="text_word_hint">Enter word</string>
+
+    <string name="text_button_search">Go search</string>
+
+
 </resources>

@@ -8,13 +8,17 @@
     tools:context="com.bingerdranch.android.hadithread.MainActivity"
     android:background="@drawable/backg">
     <ImageView
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="230dp"
         android:src="@drawable/logo"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"/>
     <ListView
-        android:layout_width="wrap_content"
+        android:divider="@drawable/transparent"
+        android:id="@+id/list_for_titles"
+        android:layout_marginTop="50sp"
+        android:layout_gravity="center"
+        android:layout_width="400sp"
         android:layout_height="wrap_content">
     </ListView>
 </LinearLayout>
