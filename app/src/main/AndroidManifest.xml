@@ -24,8 +24,12 @@
             android:name=".TextActivity"
             android:parentActivityName=".ParthActivity">
         </activity>
-        <activity android:name=".SearchActivity"
+        <activity
+            android:name=".SearchActivity"
             android:parentActivityName=".MainActivity">
+        </activity>
+        <activity android:name=".ReadFromSearch"
+            android:parentActivityName=".SearchActivity">
         </activity>
     </application>
 

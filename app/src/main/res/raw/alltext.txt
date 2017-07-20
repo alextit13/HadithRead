@@ -116,5 +116,5 @@ In Grand Junction, people wanted Trump to accomplish certain things with the pra
 Title_10_4<ts>Black list story book<te>
 hen Karen Kulp was a child, she believed that the United States of America as she knew it was going to end on June 6, 1966. Her parents were from the South, and they had migrated to Colorado, where Kulp?s father was involved in mining operations and various entrepreneurial activities. In terms of ideology, her parents had started with the John Birch Society, and then they became more radical, until they thought that an invasion was likely to take place on 6/6/66, because it resembled the number of the Beast. ?We thought we were going to have a world war, there would be Communists coming, we?d have to kill somebody for a loaf of bread,? Kulp said recently.
 
-Title_end
+Title_end_title
 Book_end
