@@ -23,25 +23,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SearchActivity extends Activity {
-
-    private String ATTRIBUTE_NAME_RB = "radiobutton";
-    private String ATTRIBUTE_NAME_TEXT = "text";
-
     private static final String LOG_TAG = "MyLogs";
     private String allText;
+
+    private String ATTRIBUTE_NAME_RB = "checked";
+    private String ATTRIBUTE_NAME_TEXT = "text";
+    private ListView listForradioBitton; // лист с радиобаттонами
 
     private ArrayList<String> listForBook; // сюда будут помещаться все титлы из книги
     private ArrayList<String> book_list;
 
-    private ArrayList<Boolean> listRB;
+    private ArrayList<Boolean> listRB; // тру или фолс
 
     private EditText enterWord; // сюда мы вводим слово
     private Button btnSearch; // кнопка вывода результата
 
-    private ListView listForradioBitton; // лист с радиобаттонами
-
     private ArrayList<String> listWithRadioButton; // тут будут все радиобаттоны с книгами
-
 
     private RadioButton rb;
     private TextView tv;
@@ -98,17 +95,19 @@ public class SearchActivity extends Activity {
         return listForBook;
     }
     private void completeResults(){
+        RadioButton radioButton = new RadioButton(SearchActivity.this);
         ArrayList<Map<String, Object>> data = new ArrayList<>();
         Map<String, Object> m;
         for (int i= 0; i<listForBook.size();i++){
             m = new HashMap<String, Object>();
-            m.put(ATTRIBUTE_NAME_RB, listRB.get(i));
+            m.put(ATTRIBUTE_NAME_RB, radioButton);
             m.put(ATTRIBUTE_NAME_TEXT,listForBook.get(i));
             data.add(m);
         }
         String [] from = {ATTRIBUTE_NAME_RB, ATTRIBUTE_NAME_TEXT};
         int [] to = {R.id.rb, R.id.tv};
         SimpleAdapter sAdapter = new SimpleAdapter(SearchActivity.this, data, R.layout.search_result,from,to);
+        listForradioBitton = (ListView)findViewById(R.id.list_for_titles);
         listForradioBitton.setAdapter(sAdapter);
     }
 }
