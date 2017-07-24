@@ -43,6 +43,8 @@ public class SearchActivity extends Activity {
     private RadioButton rb;
     private TextView tv;
 
+    ArrayList <String> listWithBookNames;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +56,8 @@ public class SearchActivity extends Activity {
         for (int i = 0; i<10;i++){
             listRB.add(false);
         }
+
+        listWithBookNames= new ArrayList<>();
 
         rb = (RadioButton) findViewById(R.id.rb);
         tv = (TextView) findViewById(R.id.tv);
@@ -92,7 +96,11 @@ public class SearchActivity extends Activity {
                 listForBook.add(book);// тут храняться все книги c текстом
             }
         }
-        return listForBook;
+        for (int k = 0; k<listForBook.size();k++){
+            String s = listForBook.get(k).substring(0,20);
+            listWithBookNames.add(s);
+        }
+        return listWithBookNames;
     }
     private void completeResults(){
         RadioButton radioButton = new RadioButton(SearchActivity.this);
@@ -101,7 +109,7 @@ public class SearchActivity extends Activity {
         for (int i= 0; i<listForBook.size();i++){
             m = new HashMap<String, Object>();
             m.put(ATTRIBUTE_NAME_RB, radioButton);
-            m.put(ATTRIBUTE_NAME_TEXT,listForBook.get(i));
+            m.put(ATTRIBUTE_NAME_TEXT,listWithBookNames.get(i));
             data.add(m);
         }
         String [] from = {ATTRIBUTE_NAME_RB, ATTRIBUTE_NAME_TEXT};
