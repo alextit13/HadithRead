@@ -8,11 +8,13 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import java.io.BufferedReader;
@@ -28,6 +30,9 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.StringTokenizer;
 
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
@@ -43,6 +48,11 @@ public class MainActivity extends Activity {
     private char [] arr;
     private ImageButton button_search;
 
+    private String ATTRIBUTE_NAME_TEXT = "text";
+    private String ATTRIBUTE_NAME_IMAGE = "image";
+    private String ATTRIBUTE_NAME_TEXT2 = "text2";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +61,25 @@ public class MainActivity extends Activity {
         listViewBooks = (ListView) findViewById(R.id.list_view_books);
         listForBooks = new ArrayList<>();
         textsRead();
-        arrayAdapterBooks = new ArrayAdapter<>(MainActivity.this,R.layout.book_item,listForBooks);
-        listViewBooks.setAdapter(arrayAdapterBooks);
+        String [] text = {"Sunnah Ibn Majah","Comprehensive modification","Golden feminine", "Sunnah Abu Dawood",
+                "Right Muslim","Sahih Bukhari","Sunni","Mushrikah Sharif","Motta Imam Boss","Shamal Tirmizi"};
+        String [] text2 = {"مسند احمد", "سنن دارمی", "مشکوۃ شریف","موطا امام مالک","شمائل ترمذی","سنن ابن ماجہ","جامع ترمذی","سنن نسائی","سنن ابوداؤد","صحیح مسلم"};
+        int [] img = {R.drawable.book_red,R.drawable.book_mehroon,R.drawable.book_green,R.drawable.book_blue,
+                        R.drawable.aqua,R.drawable.brown,R.drawable.orange, R.drawable.pink,R.drawable.green,R.drawable.book_mehroon};
+        ArrayList<Map<String, Object>> data = new ArrayList<>(text.length);
+        Map<String, Object> m;
+        for (int i= 0; i<text.length;i++){
+            m = new HashMap<String, Object>();
+            m.put(ATTRIBUTE_NAME_TEXT,text[i]);
+            m.put(ATTRIBUTE_NAME_TEXT2,text2[i]);
+            m.put(ATTRIBUTE_NAME_IMAGE,img[i]);
+            data.add(m);
+        }
+        String [] from = {ATTRIBUTE_NAME_IMAGE, ATTRIBUTE_NAME_TEXT, ATTRIBUTE_NAME_TEXT2};
+        int [] to = {R.id.image_book, R.id.text_book, R.id.text_book2};
+        SimpleAdapter sAdapter = new SimpleAdapter(MainActivity.this, data, R.layout.item,from,to);
+        listViewBooks.setAdapter(sAdapter);
+
         listViewBooks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -74,6 +101,12 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu,menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
     public void textsRead(){

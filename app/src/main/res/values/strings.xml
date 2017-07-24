@@ -11,6 +11,9 @@
     <string name="text_word_hint">Enter word</string>
 
     <string name="text_button_search">Go search</string>
+    <string name="main_text">HadithRead</string>
+
+    <string name="search">search</string>
 
 
 </resources>
