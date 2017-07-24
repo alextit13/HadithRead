@@ -26,7 +26,8 @@
         </activity>
         <activity
             android:name=".SearchActivity"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@android:style/Theme.Material.Dialog">
         </activity>
         <activity android:name=".ReadFromSearch"
             android:parentActivityName=".SearchActivity">

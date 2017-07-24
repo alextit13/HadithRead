@@ -1,150 +1,189 @@
 Book_1<bs>First Book<be>
-Title_1_1 <ts>Interesting title<te>
-At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they could do better.
+Title_1_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
+
+<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
+الْأَنْصَارِيُّ قَالَ أَخْبَرَنِي مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ يَقُولُ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَی الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صَلَّی
+ اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِامْرِئٍ مَا نَوَی فَمَنْ کَانَتْ هِجْرَتُهُ إِلَی دُنْيَا يُصِيبُهَا أَوْ إِلَی امْرَأَةٍ يَنْکِحُهَا فَهِجْرَتُهُ إِلَی مَا هَاجَرَ إِلَيْهِ<arte>
+
+<urduts>حمیدی، سفیان، یحیی بن سعید انصاری، محمد بن ابراہیم تیمی، علقمہ بن وقاص
+لیثی سے روایت کرتے ہیں کہ وہ فرماتے ہیں میں نے حضرت عمر بن خطاب رضی اللہ تعالیٰ عنہ کو منبر پر فرماتے ہوئے سنا کہ میں نے رسول اللہ صلی اللہ علیہ
+ وسلم کو یہ فرماتے ہوئے سنا کہ اعمال کے نتائج نیتوں پر موقوف ہیں اور ہر آدمی کو وہی ملے گا جس کی اس نے نیت کی، چنانچہ جس کی ہجرت دنیا
+ کے لئے ہو کہ وہ اسے پائے گا، یا کسی عورت کے لئے ہو، کہ اس سے نکاح کرے تو اس کی ہجرت اسی چیز کی طرف شمار ہوگی جس کے لئے ہجرت کی ہو۔<urdute>
+
+<ents>At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore
+this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican
+leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won
+Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they
+could do better.<ente>
 End_title
 
-Title_1_2<ts>Much interesting title<te>
-In 2018, there will be an election to replace John Hickenlooper, the Democratic Colorado governor, who will vacate his seat because of term limits. At the DeploraBall, Patterson told me that the Republicans can win the governorship and then, two years later, deliver Colorado to Trump. He said, �We�re going to start on the Western Slope and do a sweep east and color it red.�
+Title_1_2<ts>Much interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
+
+<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
+الْأَنْصَارِيُّ قَالَ أَخْبَرَنِي مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ يَقُولُ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَی الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صَلَّی
+ اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِامْرِئٍ مَا نَوَی فَمَنْ کَانَتْ هِجْرَتُهُ إِلَی دُنْيَا يُصِيبُهَا أَوْ إِلَی امْرَأَةٍ يَنْکِحُهَا فَهِجْرَتُهُ إِلَی مَا هَاجَرَ إِلَيْهِ<arte>
+
+<urduts>حمیدی، سفیان، یحیی بن سعید انصاری، محمد بن ابراہیم تیمی، علقمہ بن وقاص
+لیثی سے روایت کرتے ہیں کہ وہ فرماتے ہیں میں نے حضرت عمر بن خطاب رضی اللہ تعالیٰ عنہ کو منبر پر فرماتے ہوئے سنا کہ میں نے رسول اللہ صلی اللہ علیہ
+ وسلم کو یہ فرماتے ہوئے سنا کہ اعمال کے نتائج نیتوں پر موقوف ہیں اور ہر آدمی کو وہی ملے گا جس کی اس نے نیت کی، چنانچہ جس کی ہجرت دنیا
+ کے لئے ہو کہ وہ اسے پائے گا، یا کسی عورت کے لئے ہو، کہ اس سے نکاح کرے تو اس کی ہجرت اسی چیز کی طرف شمار ہوگی جس کے لئے ہجرت کی ہو۔<urdute>
+
+<ents>In 2018, there will be an election to replace John Hickenlooper, the Democratic Colorado governor, who will vacate his seat because of term limits.
+At the DeploraBall, Patterson told me that the Republicans can win the governorship and then, two years later, deliver Colorado to Trump. He said,
+�We�re going to start on the Western Slope and do a sweep east and color it red.�<ente>
 End_title
 
-Title_1_3<ts>Very interesting title<te>
-Like many parts of America that strongly supported Trump, Grand Junction is a rural place with problems that have traditionally been associated with urban areas. In the past three years, felony filings have increased by nearly sixty-five per cent, and there are more than twice as many open homicide cases as there were a decade ago. There�s an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a rate that�s nearly two and a half times that of the nation. 
+Title_1_3<ts>Very interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
+
+<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
+الْأَنْصَارِيُّ قَالَ أَخْبَرَنِي مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ يَقُولُ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَی الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صَلَّی
+ اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِامْرِئٍ مَا نَوَی فَمَنْ کَانَتْ هِجْرَتُهُ إِلَی دُنْيَا يُصِيبُهَا أَوْ إِلَی امْرَأَةٍ يَنْکِحُهَا فَهِجْرَتُهُ إِلَی مَا هَاجَرَ إِلَيْهِ<arte>
+
+<urduts>حمیدی، سفیان، یحیی بن سعید انصاری، محمد بن ابراہیم تیمی، علقمہ بن وقاص
+لیثی سے روایت کرتے ہیں کہ وہ فرماتے ہیں میں نے حضرت عمر بن خطاب رضی اللہ تعالیٰ عنہ کو منبر پر فرماتے ہوئے سنا کہ میں نے رسول اللہ صلی اللہ علیہ
+ وسلم کو یہ فرماتے ہوئے سنا کہ اعمال کے نتائج نیتوں پر موقوف ہیں اور ہر آدمی کو وہی ملے گا جس کی اس نے نیت کی، چنانچہ جس کی ہجرت دنیا
+ کے لئے ہو کہ وہ اسے پائے گا، یا کسی عورت کے لئے ہو، کہ اس سے نکاح کرے تو اس کی ہجرت اسی چیز کی طرف شمار ہوگی جس کے لئے ہجرت کی ہو۔<urdute>
+
+<ents>Like many parts of America that strongly supported Trump, Grand Junction is a rural place with problems that have traditionally been associated
+with urban areas. In the past three years, felony filings have increased by nearly sixty-five per cent, and there are more than twice as many open
+homicide cases as there were a decade ago. There�s an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a
+rate that�s nearly two and a half times that of the nation.<ente>
 End_title
 Title_end_title
 
 Book_2<bs>Book number two<be>
-Title_2_1<ts>Mush live story<te>
+Title_2_1<ts>Mush live story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 Some of this is tied to economic problems, but there�s also an issue of perception. The decrease in gas drilling weighs heavily on the minds of locals, although few people seem to realize that the energy industry now represents less than three per cent of local employment. They�ve been slow to embrace other sectors, such as health care and education, which seem to have more potential for future growth.
 End_title
 
-Title_2_2<ts>Simple story<te>
+Title_2_2<ts>Simple story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 After the turbulent first two months of the Administration, I met again with Kathy Rehberg and her husband, Ron. They were satisfied with Trump?s performance, and their complaints about his behavior were mild. ?I think some of it is funny, how he doesn?t let people push him around,? Ron Rehberg said. Over time, such remarks became more common. ?I hate to say it, but I wake up in the morning looking forward to what else is coming,? Ray Scott, a Republican state senator who had campaigned for Trump, told me in June. One lawyer said bluntly, ?I get a kick in the ass out of him.? The calculus seemed to have shifted: Trump?s negative qualities, which once had been described as a means to an end, now had value of their own. The point wasn?t necessarily to get things done; it was to retaliate against the media and other enemies. This had always seemed fundamental to Trump?s appeal, but people had been less likely to express it so starkly before he entered office. ?For those of us who believe that the media has been corrupt for a lot of years, it?s a way of poking at the jellyfish,? Karen Kulp told me in late April. ?Just to make them mad.
 End_title
 
-Title_2_3<ts>Very simple story<te>
+Title_2_3<ts>Very simple story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In Grand Junction, people wanted Trump to accomplish certain things with the pragmatism of a businessman, but they also wanted him to make them feel a certain way. The assumption has always been that, while emotional appeal might have mattered during the campaign, the practical impact of a Trump Presidency would prove more important. Liberals claimed that Trump would fail because his policies would hurt the people who had voted for him.
 End_title
 
-Title_2_4<ts>Black list story<te>
+Title_2_4<ts>Black list story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 hen Karen Kulp was a child, she believed that the United States of America as she knew it was going to end on June 6, 1966. Her parents were from the South, and they had migrated to Colorado, where Kulp?s father was involved in mining operations and various entrepreneurial activities. In terms of ideology, her parents had started with the John Birch Society, and then they became more radical, until they thought that an invasion was likely to take place on 6/6/66, because it resembled the number of the Beast. ?We thought we were going to have a world war, there would be Communists coming, we?d have to kill somebody for a loaf of bread,? Kulp said recently.
 End_title
 Title_end_title
 
 Book_3<bs>Three number book<be>
-Title_3_1<ts>My life<te>
+Title_3_1<ts>My life<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 She was thirteen when doomsday came. The family was living in Del Norte, Colorado, and they had packed gas masks, ammunition, canned food, and other supplies. As the day went on, Kulp said, she began to think that the invasion wasn?t going to happen. ?And then I thought, I?m going to have to go to school tomorrow.?
 In time, Kulp began to question her parents? ideas. Her father became a pioneer in far-right radio, re-broadcasting the shows of Tom Valentine, who often promoted conspiracy theories and was accused of anti-Semitism. The Kulp family sometimes attended Aryan Nations training camps. ?It was for whites only,? Kulp said. ?It would teach you that whites were the supreme race, all of that shit.? She pointed to her heart: ?It just didn?t fit in with this right here.?
 End_title
 
-Title_3_2<ts>About my self<te>
+Title_3_2<ts>About my self<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 By the time Kulp was twenty, she had rejected her parents? racism. She worked as a nurse, eventually specializing in geriatric care, and during the nineteen-eighties she participated in pro-choice demonstrations. Last autumn, she was energized by the Presidential election. In Grand Junction, the largest city in western Colorado, Kulp campaigned with a group of citizens who became active shortly after the release of the ?Access Hollywood? recording, in which Trump was caught on tape bragging about assaulting women.
 End_title
 
-Title_3_3<ts>Everything about you<te>
+Title_3_3<ts>Everything about you<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 One of the campaigners was a working mother named Lisa Gaizutis. Her eleven-year-old son had friends whose parents had declared that they would move to Canada if the election went the wrong way, so he did everything possible to free up his mother?s afternoons. ?He said he?d take care of himself as long as I was campaigning,? Gaizutis remembered, after the election. ?He?d text me and say, ?You can stay late, I?m done with my homework.? ?
 The majority of these activists were women, but their backgrounds were varied. Laureen Gutierrez?s ancestors had come from Spain via Mexico; Marjorie Haun was a special-education teacher who had left her job because of a vocal disability. Matt Patterson was a high-school dropout who, through a series of unlikely events, had acquired a classics degree from Columbia University. All of the activists had arrived in the same place, as fervent supporters of Donald Trump, and on the day of the Inauguration they met in Grand Junction to celebrate.
 End_title
 
-Title_3_4<ts>Hate everything about you<te>
+Title_3_4<ts>Hate everything about you<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In October, Matt Patterson, who grew up in Grand Junction but now lives in Washington, D.C., returned to his home town to serve as the Party?s regional field director for the Presidential campaign. He lasted for four days. This was shortly after the ?Access Hollywood? tape was leaked, and Patterson?s first act as field director was to propose that the Party hold a Women for Trump rally. But the county chairman refused. ?His exact words were, ?That?s picking a fight we can?t win,? ? Patterson told me. He quit the campaign and organized the rally on his own. In his estimation, most Republicans would find Trump?s comments repugnant, but they would be even more resentful of the coastal media that was pushing the story.
 End_title
 Title_end_title
 
 Book_4<bs>Four Book names super<be>
-Title_4_1<ts>I like this<te>
+Title_4_1<ts>I like this<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 The Women for Trump rally was a local turning point. More than a hundred people showed up, and it galvanized a group of activists. Like other grassroots supporters across the country, they named themselves after Hillary Clinton?s comment that half of Trump?s adherents were racists, sexists, and others who belonged in a ?basket of deplorables.? The Deplorables? approach to the election was fiercely unapologetic. Karen Kulp told me that Trump wasn?t racist; he was simply calling for immigrants to be held accountable to the law. She said she would never support a hateful candidate, because her childhood contact with extremist groups had made her sensitive to such issues.
 End_title
 
-Title_4_2<ts>End title<te>
+Title_4_2<ts>End title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 For Kulp, who is in her mid-sixties and describes her income as limited, the campaign was empowering. Like many in Grand Junction, she believed that Trump would kick-start the local energy industry by reducing regulations. She told me that she had never shaken the sense that the country is under threat. ?I think America is lost to us,? she said. ?Because of the way I was raised, that is baggage that I will have for the rest of my life.? The Deplorables funded their own activities, and they pooled money in order to buy Trump shirts, hats, and buttons from Amazon, because the official campaign provided almost nothing. ?I made about a dozen Amazon orders,? Kulp said, at the DeploraBall. ?Every shirt you see here tonight, I bought.?
 End_title
 Title_end_title
 
 Book_5<bs>Describes her income<be>
-Title_5_1 <ts>Interesting title<te>
+Title_5_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they could do better.
 End_title
 
-Title_5_2<ts>Much interesting title<te>
+Title_5_2<ts>Much interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In 2018, there will be an election to replace John Hickenlooper, the Democratic Colorado governor, who will vacate his seat because of term limits. At the DeploraBall, Patterson told me that the Republicans can win the governorship and then, two years later, deliver Colorado to Trump. He said, �We�re going to start on the Western Slope and do a sweep east and color it red.�
 End_title
 
-Title_5_3<ts>Very interesting title<te>
+Title_5_3<ts>Very interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 Like many parts of America that strongly supported Trump, Grand Junction is a rural place with problems that have traditionally been associated with urban areas. In the past three years, felony filings have increased by nearly sixty-five per cent, and there are more than twice as many open homicide cases as there were a decade ago. There�s an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a rate that�s nearly two and a half times that of the nation.
 End_title
 Title_end_title
 
 Book_6<bs>Was a local<be>
-Title_6_1<ts>My life<te>
+Title_6_1<ts>My life<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 She was thirteen when doomsday came. The family was living in Del Norte, Colorado, and they had packed gas masks, ammunition, canned food, and other supplies. As the day went on, Kulp said, she began to think that the invasion wasn?t going to happen. ?And then I thought, I?m going to have to go to school tomorrow.?
 In time, Kulp began to question her parents? ideas. Her father became a pioneer in far-right radio, re-broadcasting the shows of Tom Valentine, who often promoted conspiracy theories and was accused of anti-Semitism. The Kulp family sometimes attended Aryan Nations training camps. ?It was for whites only,? Kulp said. ?It would teach you that whites were the supreme race, all of that shit.? She pointed to her heart: ?It just didn?t fit in with this right here.?
 End_title
 
-Title_6_2<ts>About my self<te>
+Title_6_2<ts>About my self<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 By the time Kulp was twenty, she had rejected her parents? racism. She worked as a nurse, eventually specializing in geriatric care, and during the nineteen-eighties she participated in pro-choice demonstrations. Last autumn, she was energized by the Presidential election. In Grand Junction, the largest city in western Colorado, Kulp campaigned with a group of citizens who became active shortly after the release of the ?Access Hollywood? recording, in which Trump was caught on tape bragging about assaulting women.
 End_title
 Title_end_title
 
 Book_7<bs>Names super<be>
-Title_7_1 <ts>Interesting title<te>
+Title_7_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they could do better.
 End_title
 
-Title_7_2<ts>Much interesting title<te>
+Title_7_2<ts>Much interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In 2018, there will be an election to replace John Hickenlooper, the Democratic Colorado governor, who will vacate his seat because of term limits. At the DeploraBall, Patterson told me that the Republicans can win the governorship and then, two years later, deliver Colorado to Trump. He said, �We�re going to start on the Western Slope and do a sweep east and color it red.�
 End_title
 
-Title_7_3<ts>Very interesting title<te>
+Title_7_3<ts>Very interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 Like many parts of America that strongly supported Trump, Grand Junction is a rural place with problems that have traditionally been associated with urban areas. In the past three years, felony filings have increased by nearly sixty-five per cent, and there are more than twice as many open homicide cases as there were a decade ago. There�s an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a rate that�s nearly two and a half times that of the nation.
 End_title
 Title_end_title
 
 Book_8<bs>Super<be>
-Title_8_1 <ts>Interesting title<te>
+Title_8_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they could do better.
 End_title
 
-Title_8_2<ts>Much interesting title<te>
+Title_8_2<ts>Much interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In 2018, there will be an election to replace John Hickenlooper, the Democratic Colorado governor, who will vacate his seat because of term limits. At the DeploraBall, Patterson told me that the Republicans can win the governorship and then, two years later, deliver Colorado to Trump. He said, �We�re going to start on the Western Slope and do a sweep east and color it red.�
 End_title
 
-Title_8_3<ts>Very interesting title<te>
+Title_8_3<ts>Very interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 Like many parts of America that strongly supported Trump, Grand Junction is a rural place with problems that have traditionally been associated with urban areas. In the past three years, felony filings have increased by nearly sixty-five per cent, and there are more than twice as many open homicide cases as there were a decade ago. There�s an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a rate that�s nearly two and a half times that of the nation.
 End_title
 Title_end_title
 
 Book_9<bs>The family<be>
-Title_9_1<ts>Mush live story<te>
+Title_9_1<ts>Mush live story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 Some of this is tied to economic problems, but there�s also an issue of perception. The decrease in gas drilling weighs heavily on the minds of locals, although few people seem to realize that the energy industry now represents less than three per cent of local employment. They�ve been slow to embrace other sectors, such as health care and education, which seem to have more potential for future growth.
 End_title
 
-Title_9_2<ts>Simple story<te>
+Title_9_2<ts>Simple story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 After the turbulent first two months of the Administration, I met again with Kathy Rehberg and her husband, Ron. They were satisfied with Trump?s performance, and their complaints about his behavior were mild. ?I think some of it is funny, how he doesn?t let people push him around,? Ron Rehberg said. Over time, such remarks became more common. ?I hate to say it, but I wake up in the morning looking forward to what else is coming,? Ray Scott, a Republican state senator who had campaigned for Trump, told me in June. One lawyer said bluntly, ?I get a kick in the ass out of him.? The calculus seemed to have shifted: Trump?s negative qualities, which once had been described as a means to an end, now had value of their own. The point wasn?t necessarily to get things done; it was to retaliate against the media and other enemies. This had always seemed fundamental to Trump?s appeal, but people had been less likely to express it so starkly before he entered office. ?For those of us who believe that the media has been corrupt for a lot of years, it?s a way of poking at the jellyfish,? Karen Kulp told me in late April. ?Just to make them mad.
 End_title
 
-Title_9_3<ts>Very simple story<te>
+Title_9_3<ts>Very simple story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In Grand Junction, people wanted Trump to accomplish certain things with the pragmatism of a businessman, but they also wanted him to make them feel a certain way. The assumption has always been that, while emotional appeal might have mattered during the campaign, the practical impact of a Trump Presidency would prove more important. Liberals claimed that Trump would fail because his policies would hurt the people who had voted for him.
 End_title
 
-Title_9_4<ts>Black list story<te>
+Title_9_4<ts>Black list story<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 hen Karen Kulp was a child, she believed that the United States of America as she knew it was going to end on June 6, 1966. Her parents were from the South, and they had migrated to Colorado, where Kulp?s father was involved in mining operations and various entrepreneurial activities. In terms of ideology, her parents had started with the John Birch Society, and then they became more radical, until they thought that an invasion was likely to take place on 6/6/66, because it resembled the number of the Beast. ?We thought we were going to have a world war, there would be Communists coming, we?d have to kill somebody for a loaf of bread,? Kulp said recently.
 End_title
 Title_end_title
 
 Book_10<bs>The family Book<be>
-Title_10_1<ts>Mush live story book<te>
+Title_10_1<ts>Mush live story book<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 Some of this is tied to economic problems, but there�s also an issue of perception. The decrease in gas drilling weighs heavily on the minds of locals, although few people seem to realize that the energy industry now represents less than three per cent of local employment. They�ve been slow to embrace other sectors, such as health care and education, which seem to have more potential for future growth.
 End_title
 
-Title_10_2<ts>Simple story book<te>
+Title_10_2<ts>Simple story book<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 After the turbulent first two months of the Administration, I met again with Kathy Rehberg and her husband, Ron. They were satisfied with Trump?s performance, and their complaints about his behavior were mild. ?I think some of it is funny, how he doesn?t let people push him around,? Ron Rehberg said. Over time, such remarks became more common. ?I hate to say it, but I wake up in the morning looking forward to what else is coming,? Ray Scott, a Republican state senator who had campaigned for Trump, told me in June. One lawyer said bluntly, ?I get a kick in the ass out of him.? The calculus seemed to have shifted: Trump?s negative qualities, which once had been described as a means to an end, now had value of their own. The point wasn?t necessarily to get things done; it was to retaliate against the media and other enemies. This had always seemed fundamental to Trump?s appeal, but people had been less likely to express it so starkly before he entered office. ?For those of us who believe that the media has been corrupt for a lot of years, it?s a way of poking at the jellyfish,? Karen Kulp told me in late April. ?Just to make them mad.
 End_title
 
-Title_10_3<ts>Very simple story book<te>
+Title_10_3<ts>Very simple story book<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 In Grand Junction, people wanted Trump to accomplish certain things with the pragmatism of a businessman, but they also wanted him to make them feel a certain way. The assumption has always been that, while emotional appeal might have mattered during the campaign, the practical impact of a Trump Presidency would prove more important. Liberals claimed that Trump would fail because his policies would hurt the people who had voted for him.
 End_title
 
-Title_10_4<ts>Black list story book<te>
+Title_10_4<ts>Black list story book<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 hen Karen Kulp was a child, she believed that the United States of America as she knew it was going to end on June 6, 1966. Her parents were from the South, and they had migrated to Colorado, where Kulp?s father was involved in mining operations and various entrepreneurial activities. In terms of ideology, her parents had started with the John Birch Society, and then they became more radical, until they thought that an invasion was likely to take place on 6/6/66, because it resembled the number of the Beast. ?We thought we were going to have a world war, there would be Communists coming, we?d have to kill somebody for a loaf of bread,? Kulp said recently.
 End_title
 

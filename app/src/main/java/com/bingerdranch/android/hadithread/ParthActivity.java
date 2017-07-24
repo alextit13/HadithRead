@@ -12,10 +12,17 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-
+import java.util.HashMap;
+import java.util.Map;
+/*
+* ДАННЫЙ КЛАСС БЕРЕТ ТЕКСТ ВЫБРАННОЙ КНИГИ И ДЕЛАЕТ ИЗ НЕГО ПЕРЕЧЕНЬ
+* ТОМОВ, КОТОРЫЕ НАЗЫВАЮТСЯ ТИТЛАМИ. ВСЕ ЭТИ ТИТЛЫ СОДЕРЖАТ В СЕБЕ КАК
+* НАЗВАНИЯ ТАК И ВЕСЬ ТЕКСТ ИЗ СЕБЯ
+* */
 public class ParthActivity extends Activity {
 
     private static final String LOG_TAG = "MyLogs";
@@ -24,12 +31,14 @@ public class ParthActivity extends Activity {
     private int position = 0; // тут пришла позиция, в которую мы тыкнули в первом экране
 
 
-    private ArrayList<String> listForTitles;
+    private ArrayList<String> listForTitles; // тексты титлов на английском
+    private ArrayList<String> listForTitlesArabian; // тексты на арабском
     private ListView list_for_titles; // сюда будем выводить перечень разделов из выбранной книги
-    private ArrayAdapter <String> adapter;
+
+    private String ATTRIBUTE_NAME_TEXT = "text";
+    private String ATTRIBUTE_NAME_TEXT2 = "text2";
 
     private char [] arr;
-    private String text = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,10 +52,24 @@ public class ParthActivity extends Activity {
         position = intent.getIntExtra("position",0);
         list_for_titles = (ListView) findViewById(R.id.list_for_titles);
         listForTitles = new ArrayList<String>();
+        listForTitlesArabian = new ArrayList<>();
         generateTitlesList();
 
-        adapter = new ArrayAdapter<>(ParthActivity.this,R.layout.book_item,listForTitles);
-        list_for_titles.setAdapter(adapter);
+        ArrayList<Map<String, Object>> data = new ArrayList<>(listForTitles.size());
+        Map<String, Object> m;
+
+        for (int i= 0; i<listForTitles.size();i++){
+            m = new HashMap<String, Object>();
+            int j = i + 1;
+            m.put(ATTRIBUTE_NAME_TEXT, listForTitlesArabian.get(i)+ " - " + j);
+            m.put(ATTRIBUTE_NAME_TEXT2, i + 1 + ". " +  listForTitles.get(i));
+            data.add(m);
+        }
+
+        String [] from = {ATTRIBUTE_NAME_TEXT, ATTRIBUTE_NAME_TEXT2};
+        int [] to = {R.id.text_item_one, R.id.text_item_two};
+        SimpleAdapter sAdapter = new SimpleAdapter(ParthActivity.this, data, R.layout.item_book,from,to);
+        list_for_titles.setAdapter(sAdapter);
 
         list_for_titles.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -74,7 +97,7 @@ public class ParthActivity extends Activity {
             int end = 0;
             ArrayList<Character> list_2 = new ArrayList<>();
             arr = positionBook.toCharArray();
-            for (int i = 0; i < arr.length; i++) { //тут забираем названия разделов - титлов
+            for (int i = 0; i < arr.length; i++) { //тут забираем названия разделов - титлов english
                 if ((arr[i] == '<') && (arr[i + 1] == 't') && (arr[i + 2] == 's') && (arr[i + 3] == '>')) {
                     start = i + 4;
                 }
@@ -85,12 +108,35 @@ public class ParthActivity extends Activity {
                         list_2.add(arr[j]);
                         book = book + arr[j];
                     }
-                    listForTitles.add(book);// тут храняться все титлы из выбранной нами книги
+                    listForTitles.add(book);// тут храняться все титлы из выбранной нами книги на английском
                     list_2.add('\n');
                 }
-                //Log.d(LOG_TAG, "position = " + position);
-                //text = positionBook.substring()
             }
+
+            start = 0;
+            end = 0;
+            list_2.clear();
+            arr = positionBook.toCharArray();
+            for (int i = 0; i < arr.length; i++) { //тут забираем названия разделов - титлов arabian
+                if ((arr[i] == '<') && (arr[i + 1] == 'a') && (arr[i + 2] == 'r') && (arr[i + 3] == 's') && (arr[i + 4] == '>')) {
+                    start = i + 4;
+                }
+                if ((arr[i] == '<') && (arr[i + 1] == 'a') && (arr[i + 2] == 'r') && (arr[i + 3] == 'e') && (arr[i + 4] == '>')) {
+                    end = i;
+                    String book = "";
+                    for (int j = start; j < end; j++) {
+                        list_2.add(arr[j]);
+                        book = book + arr[j];
+                    }
+                    listForTitlesArabian.add(book);// тут храняться все титлы из выбранной нами книги на арабском
+                    list_2.add('\n');
+                }
+            }
+            /*for (int k = 0; k<listForTitles.size();k++){
+                String txtTitle = listForTitles.get(k);
+                txtTitle = k+1 + ". " + txtTitle;
+                Log.d(LOG_TAG,txtTitle);
+            }*/
         }
     }
 }

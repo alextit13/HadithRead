@@ -8,15 +8,6 @@
     tools:context="com.bingerdranch.android.hadithread.MainActivity"
     android:background="@drawable/backg">
 
-    <TextView
-        android:text="@string/main_text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:paddingTop="10dp"
-        android:textSize="30sp"
-        android:textColor="#ffffff"/>
-
     <ImageButton
         android:id="@+id/button_search"
         android:layout_margin="5sp"
@@ -28,7 +19,7 @@
         />
     <ListView
         android:divider="@drawable/transparent"
-        android:layout_marginTop="10sp"
+        android:layout_marginTop="50sp"
         android:layout_gravity="center"
         android:id="@+id/list_view_books"
         android:layout_width="400sp"
