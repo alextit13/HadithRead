@@ -14,8 +14,9 @@
     <string name="main_text">HadithRead</string>
 
     <string name="search">search</string>
-    <string name="search_word">Enter word (s)</string>
+    <string name="search_word">Enter word(s)</string>
     <string name="chose_book">Chose book</string>
+    <string name="search_in_books">Search on books</string>
 
     <string name="rb1">rb1</string>
     <string name="rb2">rb2</string>

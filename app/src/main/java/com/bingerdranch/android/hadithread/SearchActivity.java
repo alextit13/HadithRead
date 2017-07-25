@@ -3,6 +3,7 @@ package com.bingerdranch.android.hadithread;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.support.annotation.IdRes;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,52 +27,41 @@ import java.util.Map;
 public class SearchActivity extends Activity {
     private static final String LOG_TAG = "MyLogs";
     private String allText;
-
-    private String ATTRIBUTE_NAME_RB = "checked";
-    private String ATTRIBUTE_NAME_TEXT = "text";
-    private ListView listForradioBitton; // лист с радиобаттонами
-
-    private ArrayList<String> listForBook; // сюда будут помещаться все титлы из книги
+    private String ALL_TEXT = "";
+    private EditText editTextForSearch;
+    private ArrayList<String> listForBook; // сюда будут помещаться все книги с текстом
     private ArrayList<String> book_list;
-
-    private ArrayList<Boolean> listRB; // тру или фолс
-
-    private EditText enterWord; // сюда мы вводим слово
-    private Button btnSearch; // кнопка вывода результата
-
     private ArrayList<String> listWithRadioButton; // тут будут все радиобаттоны с книгами
-
-    private RadioButton rb;
-    private TextView tv;
-
     ArrayList <String> listWithBookNames;
-
+    private RadioGroup radioGroup;
+    private String textForSearch = "";
+    private Button search;
+    private ArrayList<View> buttons;
+    private ArrayList <RadioButton> radioButtons;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_search);
-
-        listRB = new ArrayList<>();
-        for (int i = 0; i<10;i++){
-            listRB.add(false);
-        }
-
         listWithBookNames= new ArrayList<>();
-
-        rb = (RadioButton) findViewById(R.id.rb);
-        tv = (TextView) findViewById(R.id.tv);
-
         Intent intent = getIntent();
         allText = intent.getStringExtra("allText");
-
+        Log.d(LOG_TAG,allText.length()+"");
         book_list = new ArrayList<>();
         listWithRadioButton = new ArrayList<>();
-
         completeListWithRadioButton(allText);
-        completeResults();
-
+        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
+        connectWithRadioButtons();
+        editTextForSearch = (EditText)findViewById(R.id.editTextForSearch);
+        search = (Button) findViewById(R.id.btnSearch);
+        textForSearch = "";
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search();
+            }
+        });
     }
 
     private ArrayList<String> completeListWithRadioButton(String allText) {
@@ -97,25 +88,93 @@ public class SearchActivity extends Activity {
             }
         }
         for (int k = 0; k<listForBook.size();k++){
-            String s = listForBook.get(k).substring(0,20);
+            String str = listForBook.get(k);
+            String s = str.substring(0,str.indexOf("<be>"));
             listWithBookNames.add(s);
         }
+        for (int k = 0; k<listForBook.size();k++){
+            ALL_TEXT = ALL_TEXT + listForBook.get(k);
+        }
+        listWithBookNames.add(0,"Search in all books");
         return listWithBookNames;
     }
-    private void completeResults(){
-        RadioButton radioButton = new RadioButton(SearchActivity.this);
-        ArrayList<Map<String, Object>> data = new ArrayList<>();
-        Map<String, Object> m;
-        for (int i= 0; i<listForBook.size();i++){
-            m = new HashMap<String, Object>();
-            m.put(ATTRIBUTE_NAME_RB, radioButton);
-            m.put(ATTRIBUTE_NAME_TEXT,listWithBookNames.get(i));
-            data.add(m);
+
+    public void connectWithRadioButtons(){
+        int numRadioButton = radioGroup.getChildCount();
+        buttons =  radioGroup.getTouchables();
+        radioButtons = new ArrayList<>();
+
+        for (int i = 0; i<buttons.size();i++){
+            //Log.d(LOG_TAG,buttons.get(i).toString());
+            buttons.get(i).getId();
+            RadioButton rb = (RadioButton)findViewById(buttons.get(i).getId());
+            radioButtons.add(rb);
         }
-        String [] from = {ATTRIBUTE_NAME_RB, ATTRIBUTE_NAME_TEXT};
-        int [] to = {R.id.rb, R.id.tv};
-        SimpleAdapter sAdapter = new SimpleAdapter(SearchActivity.this, data, R.layout.search_result,from,to);
-        listForradioBitton = (ListView)findViewById(R.id.list_for_titles);
-        listForradioBitton.setAdapter(sAdapter);
+
+        for (int i = 0; i<radioButtons.size();i++){
+            radioButtons.get(i).setText(listWithBookNames.get(i));
+        }
+    }
+
+    public void search(){
+        String textForSearch = "";
+        int idSelectRadioButton = radioGroup.getCheckedRadioButtonId();
+        Log.d(LOG_TAG,idSelectRadioButton + "");
+        switch (idSelectRadioButton){
+            case 2131492964:
+                textForSearch = ALL_TEXT;
+                break;
+            case 2131492965:
+                textForSearch = listForBook.get(0);
+                break;
+            case 2131492966:
+                textForSearch = listForBook.get(1);
+                break;
+            case 2131492967:
+                textForSearch = listForBook.get(2);
+                break;
+            case 2131492968:
+                textForSearch = listForBook.get(3);
+                break;
+            case 2131492969:
+                textForSearch = listForBook.get(4);
+                break;
+            case 2131492970:
+                textForSearch = listForBook.get(5);
+                break;
+            case 2131492971:
+                textForSearch = listForBook.get(6);
+                break;
+            case 2131492972:
+                textForSearch = listForBook.get(7);
+                break;
+            case 2131492973:
+                textForSearch = listForBook.get(8);
+                break;
+            case 2131492974:
+                textForSearch = listForBook.get(9);
+                break;
+        }
+        //Log.d(LOG_TAG,textForSearch);
+        if (editTextForSearch.getText().toString().equals("")){
+            Toast.makeText(SearchActivity.this,"Enter a word (s) or number of title",Toast.LENGTH_SHORT).show();
+        }else{
+            String text = editTextForSearch.getText().toString();
+                if (textForSearch.contains(text)){
+                    textForSearch = textForSearch.replaceAll(text,"*");
+                    char[]arr;
+                    ArrayList <Integer> ch = new ArrayList<>();
+                    arr = textForSearch.toCharArray();
+                    for (int i = 0; i<arr.length;i++){
+                        if (arr[i]=='*'){
+                            ch.add(i);
+                        }
+                    }
+                    Toast.makeText(SearchActivity.this,"Finds: " + ch.size() ,Toast.LENGTH_SHORT).show();
+                }else{
+
+                    Toast.makeText(SearchActivity.this,"Nothing finds",Toast.LENGTH_SHORT).show();
+                }
+        }
     }
 }

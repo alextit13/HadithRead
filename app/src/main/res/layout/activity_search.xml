@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.bingerdranch.android.hadithread.SearchActivity"
     android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/search_in_books"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10sp"
+        android:textColor="#ffffff"/>
     <EditText
         android:layout_marginTop="70sp"
         android:id="@+id/editTextForSearch"
@@ -14,28 +22,74 @@
         android:layout_marginStart="20sp"
         android:layout_marginEnd="20sp"
         android:hint="@string/search_word"/>
-    <TextView
-        android:layout_marginStart="25sp"
-        android:textSize="18sp"
-        android:textColor="#000000"
-        android:layout_marginTop="10sp"
-        android:text="@string/chose_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-    <ListView
-        android:id="@+id/list_for_titles"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5sp"
-        android:layout_weight="100">
-    </ListView>
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_marginStart="10sp"
+            android:layout_marginEnd="10sp"
+            android:id="@+id/radio_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20sp">
+            <RadioButton
+                android:id="@+id/rbAllBook"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#b4b4b4"
+                android:textStyle="italic"/>
+            <RadioButton
+                android:id="@+id/rb1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <RadioButton
+                android:id="@+id/rb10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </RadioGroup>
+    </ScrollView>
     <Button
         android:id="@+id/btnSearch"
-        android:layout_marginTop="5sp"
-        android:layout_marginBottom="5sp"
-        android:layout_width="wrap_content"
+        android:layout_marginStart="20sp"
+        android:layout_marginEnd="20sp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/search"
+        android:layout_gravity="center"
+        android:layout_marginBottom="5sp"
+        android:layout_marginTop="5sp"
         android:layout_weight="0"
-        android:layout_gravity="center"/>
+        android:text="@string/search" />
 </LinearLayout>

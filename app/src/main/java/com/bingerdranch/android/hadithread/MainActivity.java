@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,7 +47,6 @@ public class MainActivity extends Activity {
     private ArrayList <String> listForTitle; // тут храняться названия разделов
     private String textOnFile = "";
     private char [] arr;
-    private ImageButton button_search;
 
     private String ATTRIBUTE_NAME_TEXT = "text";
     private String ATTRIBUTE_NAME_IMAGE = "image";
@@ -76,8 +76,8 @@ public class MainActivity extends Activity {
             m.put(ATTRIBUTE_NAME_IMAGE,img[i]);
             data.add(m);
         }
-        String [] from = {ATTRIBUTE_NAME_IMAGE, ATTRIBUTE_NAME_TEXT, ATTRIBUTE_NAME_TEXT2};
-        int [] to = {R.id.image_book, R.id.text_book, R.id.text_book2};
+        String [] from = {ATTRIBUTE_NAME_IMAGE, ATTRIBUTE_NAME_TEXT2};
+        int [] to = {R.id.image_book, R.id.text_book2};
         SimpleAdapter sAdapter = new SimpleAdapter(MainActivity.this, data, R.layout.item,from,to);
         listViewBooks.setAdapter(sAdapter);
 
@@ -91,23 +91,21 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-
-        button_search = (ImageButton) findViewById(R.id.button_search);
-        button_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, SearchActivity.class);
-                intent.putExtra("allBooks",listForBooks); // тут будут передаваться названия всех книг
-                intent.putExtra("allText",textOnFile); // тут будут передаваться весь текст
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
         return true;
+    }
+
+    @Override
+    public boolean onMenuItemSelected(int featureId, MenuItem item) {
+        Intent intent = new Intent(MainActivity.this, SearchActivity.class);
+        intent.putExtra("allBooks",listForBooks); // тут будут передаваться названия всех книг
+        intent.putExtra("allText",textOnFile); // тут будут передаваться весь текст
+        startActivity(intent);
+        return super.onMenuItemSelected(featureId, item);
     }
 
     public void textsRead(){

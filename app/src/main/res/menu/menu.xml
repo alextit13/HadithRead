@@ -4,5 +4,6 @@
 
     <item android:title="@string/search"
         android:visible="true"
-        app:showAsAction="always"/>
+        android:showAsAction="always"
+        android:icon="@android:drawable/ic_menu_search"/>
 </menu>
