@@ -39,15 +39,13 @@ import static android.provider.Telephony.Mms.Part.FILENAME;
 
 public class MainActivity extends Activity {
 
-    private final static String FILE_NAME = "content.txt";
     private static final String LOG_TAG = "MyLogs";
     private ListView listViewBooks;
     private ArrayAdapter<String> arrayAdapterBooks;
     private ArrayList <String> listForBooks; // тут храняться названия книг
     private ArrayList <String> listForTitle; // тут храняться названия разделов
-    private String textOnFile = "";
+    private String textOnFile = ""; // тут весь текст из выбранной книги
     private char [] arr;
-
     private String ATTRIBUTE_NAME_TEXT = "text";
     private String ATTRIBUTE_NAME_IMAGE = "image";
     private String ATTRIBUTE_NAME_TEXT2 = "text2";
@@ -60,7 +58,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         listViewBooks = (ListView) findViewById(R.id.list_view_books);
         listForBooks = new ArrayList<>();
-        textsRead();
         String [] text = {"Sunnah Ibn Majah","Comprehensive modification","Golden feminine", "Sunnah Abu Dawood",
                 "Right Muslim","Sahih Bukhari","Sunni","Mushrikah Sharif","Motta Imam Boss","Shamal Tirmizi"};
         String [] text2 = {"مسند احمد", "سنن دارمی", "مشکوۃ شریف","موطا امام مالک","شمائل ترمذی","سنن ابن ماجہ",
@@ -76,14 +73,15 @@ public class MainActivity extends Activity {
             m.put(ATTRIBUTE_NAME_IMAGE,img[i]);
             data.add(m);
         }
-        String [] from = {ATTRIBUTE_NAME_IMAGE, ATTRIBUTE_NAME_TEXT2};
-        int [] to = {R.id.image_book, R.id.text_book2};
+        String [] from = {ATTRIBUTE_NAME_TEXT,ATTRIBUTE_NAME_IMAGE, ATTRIBUTE_NAME_TEXT2};
+        int [] to = {R.id.text_book1,R.id.image_book, R.id.text_book2};
         SimpleAdapter sAdapter = new SimpleAdapter(MainActivity.this, data, R.layout.item,from,to);
         listViewBooks.setAdapter(sAdapter);
 
         listViewBooks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                textsRead(position);
                 Intent intent = new Intent(MainActivity.this, ParthActivity.class);
                 intent.putExtra("text",textOnFile);
                 intent.putExtra("arrBooks", listForBooks);
@@ -108,13 +106,47 @@ public class MainActivity extends Activity {
         return super.onMenuItemSelected(featureId, item);
     }
 
-    public void textsRead(){
+    public void textsRead(int resourceFile){
         Resources res = getResources();
-        InputStream in_s = res.openRawResource(R.raw.alltext);
+        InputStream in_s = null;
+        switch (resourceFile){
+            case 0:
+                in_s = res.openRawResource(R.raw.book_one);
+                break;
+            case 1:
+                in_s = res.openRawResource(R.raw.book_two);
+                break;
+            case 2:
+                in_s = res.openRawResource(R.raw.book_three);
+                break;
+            case 3:
+                in_s = res.openRawResource(R.raw.book_four);
+                break;
+            case 4:
+                in_s = res.openRawResource(R.raw.book_five);
+                break;
+            case 5:
+                in_s = res.openRawResource(R.raw.book_six);
+                break;
+            case 6:
+                in_s = res.openRawResource(R.raw.book_seven);
+                break;
+            case 7:
+                in_s = res.openRawResource(R.raw.book_eight);
+                break;
+            case 8:
+                in_s = res.openRawResource(R.raw.book_nine);
+                break;
+            case 9:
+                in_s = res.openRawResource(R.raw.book_ten);
+                break;
+        }
+        //Log.d(LOG_TAG, resourceFile + "");
         try {
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
             textOnFile = new String(b);// тут весь текст
+            //Log.d(LOG_TAG, textOnFile);
             if (textOnFile.contains("Book")){
                 int start = 0;
                 int end = 0;
@@ -135,12 +167,9 @@ public class MainActivity extends Activity {
                         list_2.add('\n');
                     }
                 }
-                /*for (int k = 0 ; k < listForBooks.size(); k++){
-                    Log.d(LOG_TAG, listForBooks.get(k));
-                }*/
             }
         } catch (Exception e) {
-            // e.printStackTrace();
+             e.printStackTrace();
         }
     }
 }

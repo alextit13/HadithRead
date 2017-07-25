@@ -18,18 +18,19 @@
         </activity>
         <activity
             android:name=".ParthActivity"
-            android:parentActivityName=".MainActivity"></activity>
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".TextActivity"
-            android:parentActivityName=".ParthActivity"></activity>
+            android:parentActivityName=".ParthActivity" />
         <activity
             android:name=".SearchActivity"
             android:parentActivityName=".MainActivity"
-            android:theme="@android:style/Theme.Holo.Dialog"></activity>
+            android:theme="@android:style/Theme.Holo.Dialog" />
         <activity
             android:name=".ReadFromSearch"
-            android:parentActivityName=".SearchActivity"></activity>
-        <activity android:name=".SearchFromBook"></activity>
+            android:parentActivityName=".SearchActivity" />
+        <activity android:name=".SearchFromBook" />
+        <activity android:name=".HaditsList"></activity>
     </application>
 
 </manifest>
