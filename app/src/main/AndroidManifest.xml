@@ -19,8 +19,7 @@
         <activity
             android:name=".ParthActivity"
             android:parentActivityName=".MainActivity" />
-        <activity
-            android:name=".TextActivity" />
+        <activity android:name=".TextActivity" />
         <activity
             android:name=".SearchActivity"
             android:parentActivityName=".MainActivity"
@@ -28,10 +27,8 @@
         <activity
             android:name=".ReadFromSearch"
             android:parentActivityName=".SearchActivity" />
-        <activity android:name=".SearchFromBook" />
-        <activity android:name=".HaditsList">
-
-        </activity>
+        <activity android:name=".HaditsList"></activity>
+        <activity android:name=".SearchListActivity"></activity>
     </application>
 
 </manifest>

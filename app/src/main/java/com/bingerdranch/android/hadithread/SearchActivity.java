@@ -2,6 +2,7 @@ package com.bingerdranch.android.hadithread;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
@@ -31,9 +32,9 @@ public class SearchActivity extends Activity {
     private EditText word;
     private RadioGroup radioGroup;
     private Button btnSearch;
-
-    private RadioButton radioButtonSearchInAllBooks;
     private CheckBox checkBox;
+    private ArrayList<Integer>listWithSearchPositions;
+    private  String myText = null;
 
     String [] text = {"Sunnah Ibn Majah","Comprehensive modification","Golden feminine", "Sunnah Abu Dawood",
             "Right Muslim","Sahih Bukhari","Sunni","Mushrikah Sharif","Motta Imam Boss","Shamal Tirmizi"};
@@ -51,6 +52,7 @@ public class SearchActivity extends Activity {
         radioGroup = (RadioGroup)findViewById(R.id.radio_group);
         namesBooks = new ArrayList<>();
 
+        listWithSearchPositions = new ArrayList<>();
         checkBox = (CheckBox)findViewById(R.id.checkBox);
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,11 +72,14 @@ public class SearchActivity extends Activity {
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                myText = null;
+                listWithSearchPositions.clear();
                 search();//метод поиска
             }
         });
 
     }
+
 
     private void createRadioButtons() {
         ArrayList<String>list = new ArrayList<>();//тут перечень всех рессурсов в папке raw
@@ -126,10 +131,9 @@ public class SearchActivity extends Activity {
                 }
             }
             Resources res = getResources();
-            Log.d(LOG_TAG, resArray[idRes] + "");
+            //Log.d(LOG_TAG, resArray[idRes] + "");
             InputStream in_s = res.openRawResource(resArray[idRes]);
             try {
-                String myText = null;
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 int i = in_s.read();
                 while (i != -1) {
@@ -137,17 +141,43 @@ public class SearchActivity extends Activity {
                     i = in_s.read();
                 }
                 myText = baos.toString();
-                Log.d(LOG_TAG, myText);
+                //Log.d(LOG_TAG, myText);
                 s = myText;
                 in_s.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            searchInOneBook(s);
         }else if (checkBox.isChecked()){
             Toast.makeText(SearchActivity.this,"Search in all books",Toast.LENGTH_SHORT).show();
             searchInAllBooks();
         }
     }//тут поиск
+
+    private void searchInOneBook(String text) {
+        String enteredWord = word.getText().toString();
+        if (word.getText().toString().equals("")){
+            Toast.makeText(SearchActivity.this,"Enter word or number of Hadith",Toast.LENGTH_SHORT).show();
+        }else if (text.contains(enteredWord)){
+            int index = text.indexOf(enteredWord);
+            //Log.d(LOG_TAG,text);
+            while (index >= 0) {
+                Log.d(LOG_TAG,index+"");
+                listWithSearchPositions.add(index);
+                index = text.indexOf(enteredWord, index + 1);
+            }
+            if (text.contains(enteredWord)){
+                Intent intent = new Intent(SearchActivity.this,SearchListActivity.class);
+                intent.putExtra("text", text);
+                intent.putExtra("listIndex",listWithSearchPositions);
+                startActivity(intent);
+            }else{
+                Toast.makeText(SearchActivity.this,"Nothing finds!",Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(SearchActivity.this,"Selected book is not contain entered word",Toast.LENGTH_SHORT).show();
+        }
+    }
 
     private void searchInAllBooks() {
 
