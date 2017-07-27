@@ -40,6 +40,8 @@ import static android.provider.Telephony.Mms.Part.FILENAME;
 public class MainActivity extends Activity {
 
     private static final String LOG_TAG = "MyLogs";
+    private String texts = "";
+    private ArrayList<String> ALL_BOOK_TEXTS;
     private ListView listViewBooks;
     private ArrayAdapter<String> arrayAdapterBooks;
     private ArrayList <String> listForBooks; // тут храняться названия книг
@@ -78,6 +80,9 @@ public class MainActivity extends Activity {
         SimpleAdapter sAdapter = new SimpleAdapter(MainActivity.this, data, R.layout.item,from,to);
         listViewBooks.setAdapter(sAdapter);
 
+        ALL_BOOK_TEXTS = new ArrayList<>();
+        //downloadAllTextsForSearch();
+
         listViewBooks.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -91,6 +96,42 @@ public class MainActivity extends Activity {
         });
     }
 
+    public void downloadAllTextsForSearch(){
+                Resources r = getResources();
+                InputStream is1 = r.openRawResource(R.raw.a_book_one);
+                iSMeth(is1);
+                InputStream is2 = r.openRawResource(R.raw.b_book_two);
+                iSMeth(is2);
+                InputStream is3 = r.openRawResource(R.raw.c_book_three);
+                iSMeth(is3);
+                InputStream is4 = r.openRawResource(R.raw.d_book_four);
+                iSMeth(is4);
+                InputStream is5 = r.openRawResource(R.raw.e_book_five);
+                iSMeth(is5);
+                InputStream is6 = r.openRawResource(R.raw.f_book_six);
+                iSMeth(is6);
+                InputStream is7 = r.openRawResource(R.raw.g_book_seven);
+                iSMeth(is7);
+                InputStream is8 = r.openRawResource(R.raw.h_book_eight);
+                iSMeth(is8);
+                InputStream is9 = r.openRawResource(R.raw.m_book_nine);
+                iSMeth(is9);
+                InputStream is10 = r.openRawResource(R.raw.n_book_ten);
+                iSMeth(is10);
+    }
+
+    void iSMeth(InputStream is){
+        byte[] b = new byte[0];
+        try {
+            b = new byte[is.available()];
+            is.read(b);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        texts = new String(b);
+        ALL_BOOK_TEXTS.add(texts);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -99,9 +140,10 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onMenuItemSelected(int featureId, MenuItem item) {
+
         Intent intent = new Intent(MainActivity.this, SearchActivity.class);
         intent.putExtra("allBooks",listForBooks); // тут будут передаваться названия всех книг
-        intent.putExtra("allText",textOnFile); // тут будут передаваться весь текст
+        intent.putExtra("allText",ALL_BOOK_TEXTS); // тут будут передаваться весь текст в качестве массива
         startActivity(intent);
         return super.onMenuItemSelected(featureId, item);
     }
@@ -111,41 +153,41 @@ public class MainActivity extends Activity {
         InputStream in_s = null;
         switch (resourceFile){
             case 0:
-                in_s = res.openRawResource(R.raw.book_one);
+                in_s = res.openRawResource(R.raw.a_book_one);
                 break;
             case 1:
-                in_s = res.openRawResource(R.raw.book_two);
+                in_s = res.openRawResource(R.raw.b_book_two);
                 break;
             case 2:
-                in_s = res.openRawResource(R.raw.book_three);
+                in_s = res.openRawResource(R.raw.c_book_three);
                 break;
             case 3:
-                in_s = res.openRawResource(R.raw.book_four);
+                in_s = res.openRawResource(R.raw.d_book_four);
                 break;
             case 4:
-                in_s = res.openRawResource(R.raw.book_five);
+                in_s = res.openRawResource(R.raw.e_book_five);
                 break;
             case 5:
-                in_s = res.openRawResource(R.raw.book_six);
+                in_s = res.openRawResource(R.raw.f_book_six);
                 break;
             case 6:
-                in_s = res.openRawResource(R.raw.book_seven);
+                in_s = res.openRawResource(R.raw.g_book_seven);
                 break;
             case 7:
-                in_s = res.openRawResource(R.raw.book_eight);
+                in_s = res.openRawResource(R.raw.h_book_eight);
                 break;
             case 8:
-                in_s = res.openRawResource(R.raw.book_nine);
+                in_s = res.openRawResource(R.raw.m_book_nine);
                 break;
             case 9:
-                in_s = res.openRawResource(R.raw.book_ten);
+                in_s = res.openRawResource(R.raw.n_book_ten);
                 break;
         }
-        //Log.d(LOG_TAG, resourceFile + "");
+        //Log.d(LOG_TAG,"resourceFile = " + resourceFile);
         try {
             byte[] b = new byte[in_s.available()];
             in_s.read(b);
-            textOnFile = new String(b);// тут весь текст
+            textOnFile = new String(b);// тут весь текст с выбранной книги
             //Log.d(LOG_TAG, textOnFile);
             if (textOnFile.contains("Book")){
                 int start = 0;

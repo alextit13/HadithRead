@@ -22,6 +22,15 @@
         android:layout_marginStart="20sp"
         android:layout_marginEnd="20sp"
         android:hint="@string/search_word"/>
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        android:text="@string/allBooks"
+        android:textColor="#fdecb5"
+        android:layout_marginStart="30sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -32,52 +41,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingStart="20sp">
-            <RadioButton
-                android:id="@+id/rbAllBook"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="#b4b4b4"
-                android:textStyle="italic"/>
-            <RadioButton
-                android:id="@+id/rb1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb8"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb9"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <RadioButton
-                android:id="@+id/rb10"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
         </RadioGroup>
     </ScrollView>

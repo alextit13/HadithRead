@@ -14,7 +14,7 @@
     <string name="main_text">HadithRead</string>
 
     <string name="search">search</string>
-    <string name="search_word">Enter word(s)</string>
+    <string name="search_word">Enter word(s) or Hadith number</string>
     <string name="chose_book">Chose book</string>
     <string name="search_in_books">Search on books</string>
 
@@ -23,6 +23,8 @@
     <string name="rb3">rb3</string>
     <string name="rb4">rb4</string>
     <string name="rb5">rb5</string>
+
+    <string name="allBooks">Search in all books</string>
 
 
 </resources>

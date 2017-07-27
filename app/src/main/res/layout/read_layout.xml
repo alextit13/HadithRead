@@ -4,20 +4,13 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back_for_reader"
+    android:background="@drawable/backg"
     android:gravity="center_vertical|center_horizontal|bottom">
-
-    <ScrollView
-        android:layout_margin="45sp"
+    <ListView
+        android:layout_marginTop="100sp"
+        android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/text"
-            android:layout_margin="10sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textColor="#311501"/>
-    </ScrollView>
+    </ListView>
 
 </LinearLayout>

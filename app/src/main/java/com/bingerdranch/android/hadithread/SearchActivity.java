@@ -1,191 +1,155 @@
 package com.bingerdranch.android.hadithread;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.support.annotation.IdRes;
-import android.support.v7.app.AppCompatActivity;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.RawRes;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class SearchActivity extends Activity {
     private static final String LOG_TAG = "MyLogs";
-    private String allText;
-    private String ALL_TEXT = "";
-    private EditText editTextForSearch;
-    private ArrayList<String> listForBook; // сюда будут помещаться все книги с текстом
-    private ArrayList<String> book_list;
-    private ArrayList<String> listWithRadioButton; // тут будут все радиобаттоны с книгами
-    ArrayList <String> listWithBookNames;
+
+    private EditText word;
     private RadioGroup radioGroup;
-    private String textForSearch = "";
-    private Button search;
-    private ArrayList<View> buttons;
-    private ArrayList <RadioButton> radioButtons;
+    private Button btnSearch;
+
+    private RadioButton radioButtonSearchInAllBooks;
+    private CheckBox checkBox;
+
+    String [] text = {"Sunnah Ibn Majah","Comprehensive modification","Golden feminine", "Sunnah Abu Dawood",
+            "Right Muslim","Sahih Bukhari","Sunni","Mushrikah Sharif","Motta Imam Boss","Shamal Tirmizi"};
+    String [] text2 = {"مسند احمد", "سنن دارمی", "مشکوۃ شریف","موطا امام مالک","شمائل ترمذی","سنن ابن ماجہ",
+            "جامع ترمذی","سنن نسائی","سنن ابوداؤد","صحیح مسلم"};
+    private ArrayList<String> namesBooks; // названия всех книг
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_search);
-        listWithBookNames= new ArrayList<>();
-        Intent intent = getIntent();
-        allText = intent.getStringExtra("allText");
-        Log.d(LOG_TAG,allText.length()+"");
-        book_list = new ArrayList<>();
-        listWithRadioButton = new ArrayList<>();
-        completeListWithRadioButton(allText);
-        radioGroup = (RadioGroup) findViewById(R.id.radio_group);
-        connectWithRadioButtons();
-        editTextForSearch = (EditText)findViewById(R.id.editTextForSearch);
-        search = (Button) findViewById(R.id.btnSearch);
-        textForSearch = "";
-        search.setOnClickListener(new View.OnClickListener() {
+
+        word = (EditText)findViewById(R.id.editTextForSearch);
+        radioGroup = (RadioGroup)findViewById(R.id.radio_group);
+        namesBooks = new ArrayList<>();
+
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
+        checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                search();
+                if (checkBox.isChecked()){
+                    radioGroup.clearCheck();
+                    radioGroup.setVisibility(View.GONE);
+                    //Toast.makeText(SearchActivity.this,"test",Toast.LENGTH_SHORT).show();
+                }else{
+                    radioGroup.setVisibility(View.VISIBLE);
+                }
             }
         });
+
+        createRadioButtons();//тут запоняем радиобаттонами радиогрупп
+        btnSearch = (Button)findViewById(R.id.btnSearch);
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                search();//метод поиска
+            }
+        });
+
     }
 
-    private ArrayList<String> completeListWithRadioButton(String allText) {
-        listForBook = new ArrayList<>();
-        listForBook.clear();
-        ArrayList<Character> list_2 = new ArrayList<>();
-        int start = 0;
-        int end = 0;
-        String atr = allText.replaceAll("Title_end_title", "*");
-        char[] arr = atr.toCharArray();
-
-        for (int i = 0; i < arr.length; i++) { // тут забираем весь текст разделенный на книги
-            if ((arr[i] == '<') && (arr[i + 1] == 'b') && (arr[i + 2] == 's') && (arr[i + 3] == '>')) {
-                start = i + 4;
-            }
-            if (arr[i] == '*') {
-                end = i;
-                String book = "";
-                for (int j = start; j < end; j++) {
-                    list_2.add(arr[j]);
-                    book = book + arr[j];
-                }
-                listForBook.add(book);// тут храняться все книги c текстом
+    private void createRadioButtons() {
+        ArrayList<String>list = new ArrayList<>();//тут перечень всех рессурсов в папке raw
+        Field[] fields=R.raw.class.getFields();
+        for(int count=0; count < fields.length; count++){
+            if(fields[count].getName().contains("book")){
+                list.add(fields[count].getName());
             }
         }
-        for (int k = 0; k<listForBook.size();k++){
-            String str = listForBook.get(k);
-            String s = str.substring(0,str.indexOf("<be>"));
-            listWithBookNames.add(s);
-        }
-        for (int k = 0; k<listForBook.size();k++){
-            ALL_TEXT = ALL_TEXT + listForBook.get(k);
-        }
-        listWithBookNames.add(0,"Search in all books");
-        return listWithBookNames;
-    }
-
-    public void connectWithRadioButtons(){
-        int numRadioButton = radioGroup.getChildCount();
-        buttons =  radioGroup.getTouchables();
-        radioButtons = new ArrayList<>();
-
-        for (int i = 0; i<buttons.size();i++){
-            //Log.d(LOG_TAG,buttons.get(i).toString());
-            buttons.get(i).getId();
-            RadioButton rb = (RadioButton)findViewById(buttons.get(i).getId());
-            radioButtons.add(rb);
-        }
-
-        for (int i = 0; i<radioButtons.size();i++){
-            radioButtons.get(i).setText(listWithBookNames.get(i));
-        }
-    }
-
-    public void search(){
-        String textForSearch = "";
-        int idSelectRadioButton = radioGroup.getCheckedRadioButtonId();
-        //Log.d(LOG_TAG,idSelectRadioButton + "");
-        switch (idSelectRadioButton){
-            case 2131492964:
-                textForSearch = ALL_TEXT;
-                break;
-            case 2131492965:
-                textForSearch = listForBook.get(0);
-                break;
-            case 2131492966:
-                textForSearch = listForBook.get(1);
-                break;
-            case 2131492967:
-                textForSearch = listForBook.get(2);
-                break;
-            case 2131492968:
-                textForSearch = listForBook.get(3);
-                break;
-            case 2131492969:
-                textForSearch = listForBook.get(4);
-                break;
-            case 2131492970:
-                textForSearch = listForBook.get(5);
-                break;
-            case 2131492971:
-                textForSearch = listForBook.get(6);
-                break;
-            case 2131492972:
-                textForSearch = listForBook.get(7);
-                break;
-            case 2131492973:
-                textForSearch = listForBook.get(8);
-                break;
-            case 2131492974:
-                textForSearch = listForBook.get(9);
-                break;
-        }
-        //Log.d(LOG_TAG,textForSearch);
-        if (editTextForSearch.getText().toString().equals("")){
-            Toast.makeText(SearchActivity.this,"Enter a word (s) or number of title",Toast.LENGTH_SHORT).show();
-        }else{
-            String text = editTextForSearch.getText().toString();
-
-            if (text.contains("0")||text.contains("1")||text.contains("2")||text.contains("3")||
-                    text.contains("4")||text.contains("5")||text.contains("6")||text.contains("7")||
-                    text.contains("8")||text.contains("9")){
-                Log.d(LOG_TAG,"Ищем по номеру хаддита");
-                if (radioButtons.get(0).isChecked()){
-                    Toast.makeText(SearchActivity.this,"Select one book only",Toast.LENGTH_SHORT).show();
-                }else{
-
-                }
-            }else{
-                if (textForSearch.contains(text)){
-                    textForSearch = textForSearch.replaceAll(text,"*");
-                    char[]arr;
-                    ArrayList <Integer> ch = new ArrayList<>();
-                    arr = textForSearch.toCharArray();
-                    for (int i = 0; i<arr.length;i++){
-                        if (arr[i]=='*'){
-                            ch.add(i);
-                        }
-                    }
-                    Toast.makeText(SearchActivity.this,"Finds: " + ch.size() ,Toast.LENGTH_SHORT).show();
-                }else{
-                    Toast.makeText(SearchActivity.this,"Nothing finds",Toast.LENGTH_SHORT).show();
-                }
+        for (int i=0; i < list.size(); i++){
+            if (!list.get(i).equals("")){
+                namesBooks.add(text[i]);
             }
         }
-    }
+        for (int i=0; i < list.size(); i++){
+            RadioButton rb = new RadioButton(this);
+            rb.setId(View.generateViewId());
+            rb.setText(text2[i] + " | " + text[i]);
+            rb.setTextColor(Color.YELLOW);
+            radioGroup.addView(rb);
+
+            rb.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    checkBox.setChecked(false);
+                }
+            });
+        }
+    }//заполняем радиобаттонами радиогрупп
+
+    @SuppressLint("ResourceType")
+    private void search() {
+        if ((!checkBox.isChecked())&&(radioGroup.getCheckedRadioButtonId()==-1)){
+            Toast.makeText(SearchActivity.this,"Select one or all books",Toast.LENGTH_SHORT).show();
+        }else if ((!checkBox.isChecked()&&(radioGroup.getCheckedRadioButtonId()!=-1))){
+            String s = null;
+            int idRes = radioGroup.getCheckedRadioButtonId();// идентификатор выбранного чекбокса
+            String nameBook = ((RadioButton) radioGroup.findViewById(idRes)).getText().toString();
+            Field[] ID_Fields = R.raw.class.getFields();
+            int[] resArray = new int[ID_Fields.length];
+            for (int i = 0; i < ID_Fields.length; i++) {
+                try {
+                    resArray[i] = ID_Fields[i].getInt(null);
+                    //Log.d(LOG_TAG,resArray[i]+""); // тут все индексы рессурсов
+                } catch (IllegalArgumentException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+            Resources res = getResources();
+            Log.d(LOG_TAG, resArray[idRes] + "");
+            InputStream in_s = res.openRawResource(resArray[idRes]);
+            try {
+                String myText = null;
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                int i = in_s.read();
+                while (i != -1) {
+                    baos.write(i);
+                    i = in_s.read();
+                }
+                myText = baos.toString();
+                Log.d(LOG_TAG, myText);
+                s = myText;
+                in_s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else if (checkBox.isChecked()){
+            Toast.makeText(SearchActivity.this,"Search in all books",Toast.LENGTH_SHORT).show();
+            searchInAllBooks();
+        }
+    }//тут поиск
+
+    private void searchInAllBooks() {
+
+    } // поиск по всем книгам
 }
