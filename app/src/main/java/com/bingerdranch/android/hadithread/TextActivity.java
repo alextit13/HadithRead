@@ -54,11 +54,24 @@ public class TextActivity extends Activity {
         textUr = text.substring(text.indexOf("<urduts>"),text.lastIndexOf("<urdute>"));
         textEn = text.substring(text.indexOf("~"),text.lastIndexOf("<ente>"));
 
-        text = text.replaceAll("<arte>","\n");
-        text = text.replaceAll("<urduts>","\n");
-        text = text.replaceAll("<urdute>","\n");
-        text = text.replaceAll("~","\n");
-        text = text.replaceAll("<ente>","");
+
+        textAr = textAr.replaceAll("<arte>","\n");
+        textAr = textAr.replaceAll("<urduts>","\n");
+        textAr = textAr.replaceAll("<urdute>","\n");
+        textAr = textAr.replaceAll("~","\n");
+        textAr = textAr.replaceAll("<ente>","");
+
+        textUr = textUr.replaceAll("<arte>","\n");
+        textUr = textUr.replaceAll("<urduts>","\n");
+        textUr = textUr.replaceAll("<urdute>","\n");
+        textUr = textUr.replaceAll("~","\n");
+        textUr = textUr.replaceAll("<ente>","");
+
+        textEn = textEn.replaceAll("<arte>","\n");
+        textEn = textEn.replaceAll("<urduts>","\n");
+        textEn = textEn.replaceAll("<urdute>","\n");
+        textEn = textEn.replaceAll("~","\n");
+        textEn = textEn.replaceAll("<ente>","");
 
         listLang.add(textAr);
         listLang.add(textUr);

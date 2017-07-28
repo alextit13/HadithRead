@@ -10,7 +10,7 @@
 
     <ListView
         android:divider="@drawable/transparent"
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="120sp"
         android:layout_gravity="center"
         android:id="@+id/list_view_books"
         android:layout_width="400sp"

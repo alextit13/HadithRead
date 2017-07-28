@@ -7,10 +7,9 @@
     android:background="@drawable/backg"
     android:gravity="center_vertical|center_horizontal|bottom">
     <ListView
-        android:layout_marginTop="100sp"
+        android:layout_marginTop="120sp"
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     </ListView>
-
 </LinearLayout>

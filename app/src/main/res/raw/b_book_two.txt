@@ -1,7 +1,7 @@
 ﻿Book_1<bs>Two Book<be>
 Title_1_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
 
-<hads>1<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
+<hads>59<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
        الْأَنْصَارِيُّ قَالَ أَخْبَرَنِي مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ يَقُولُ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَی الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صَلَّی
         اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِامْرِئٍ مَا نَوَی فَمَنْ کَانَتْ هِجْرَتُهُ إِلَی دُنْيَا يُصِيبُهَا أَوْ إِلَی امْرَأَةٍ يَنْکِحُهَا فَهِجْرَتُهُ إِلَی مَا هَاجَرَ إِلَيْهِ<arte>
 
@@ -10,12 +10,12 @@ Title_1_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ 
         وسلم کو یہ فرماتے ہوئے سنا کہ اعمال کے نتائج نیتوں پر موقوف ہیں اور ہر آدمی کو وہی ملے گا جس کی اس نے نیت کی، چنانچہ جس کی ہجرت دنیا
         کے لئے ہو کہ وہ اسے پائے گا، یا کسی عورت کے لئے ہو، کہ اس سے نکاح کرے تو اس کی ہجرت اسی چیز کی طرف شمار ہوگی جس کے لئے ہجرت کی ہو۔<urdute>
 
-       <ents>At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore
-       this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican
-       leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won
-       Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they
+       <ents>At the Avalon, the crowd fell silent while a woman prayed: Thank you for giving us a President who will, with your help, restore
+       this nation to her former glory, the way you created her. Less than two weeks later, the Deplorables effectively took over the county Republican
+       leadership, with members winning three positions, including the chair. Others looked farther afield. If Trump won Wisconsin, he could have won
+       Colorado, Patterson told me. The issues were here immigration and energy. He believed that without the infighting of the last campaign they
        could do better.<ente><hade>
-<hads>2<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
+<hads>60<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
        الْأَنْصَارِيُّ قَالَ أَخْبَرَنِي مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ يَقُولُ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَی الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صَلَّی
         اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِامْرِئٍ مَا نَوَی فَمَنْ کَانَتْ هِجْرَتُهُ إِلَی دُنْيَا يُصِيبُهَا أَوْ إِلَی امْرَأَةٍ يَنْکِحُهَا فَهِجْرَتُهُ إِلَی مَا هَاجَرَ إِلَيْهِ<arte>
 
@@ -24,12 +24,12 @@ Title_1_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ 
         وسلم کو یہ فرماتے ہوئے سنا کہ اعمال کے نتائج نیتوں پر موقوف ہیں اور ہر آدمی کو وہی ملے گا جس کی اس نے نیت کی، چنانچہ جس کی ہجرت دنیا
         کے لئے ہو کہ وہ اسے پائے گا، یا کسی عورت کے لئے ہو، کہ اس سے نکاح کرے تو اس کی ہجرت اسی چیز کی طرف شمار ہوگی جس کے لئے ہجرت کی ہو۔<urdute>
 
-       <ents>At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore
-       this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican
-       leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won
-       Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they
+       <ents>At the Avalon, the crowd fell silent while a woman prayed: Thank you for giving us a President who will, with your help, restore
+       this nation to her former glory, the way you created her. Less than two weeks later, the Deplorables effectively took over the county Republican
+       leadership, with members winning three positions, including the chair. Others looked farther afield. If Trump won Wisconsin, he could have won
+       Colorado, Patterson told me. The issues were here immigration and energy. He believed that without the infighting of the last campaign they
        could do better.<ente><hade>
-<hads>3<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
+<hads>3451<arts>حَدَّثَنَا الْحُمَيْدِيُّ قَالَ حَدَّثَنَا سُفْيَانُ قَالَ حَدَّثَنَا يَحْيَی بْنُ سَعِيدٍ
        الْأَنْصَارِيُّ قَالَ أَخْبَرَنِي مُحَمَّدُ بْنُ إِبْرَاهِيمَ التَّيْمِيُّ أَنَّهُ سَمِعَ عَلْقَمَةَ بْنَ وَقَّاصٍ اللَّيْثِيَّ يَقُولُ سَمِعْتُ عُمَرَ بْنَ الْخَطَّابِ رَضِيَ اللَّهُ عَنْهُ عَلَی الْمِنْبَرِ يَقُولُ سَمِعْتُ رَسُولَ اللَّهِ صَلَّی
         اللَّهُ عَلَيْهِ وَسَلَّمَ يَقُولُ إِنَّمَا الْأَعْمَالُ بِالنِّيَّاتِ وَإِنَّمَا لِامْرِئٍ مَا نَوَی فَمَنْ کَانَتْ هِجْرَتُهُ إِلَی دُنْيَا يُصِيبُهَا أَوْ إِلَی امْرَأَةٍ يَنْکِحُهَا فَهِجْرَتُهُ إِلَی مَا هَاجَرَ إِلَيْهِ<arte>
 
@@ -38,10 +38,10 @@ Title_1_1 <ts>Interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ 
         وسلم کو یہ فرماتے ہوئے سنا کہ اعمال کے نتائج نیتوں پر موقوف ہیں اور ہر آدمی کو وہی ملے گا جس کی اس نے نیت کی، چنانچہ جس کی ہجرت دنیا
         کے لئے ہو کہ وہ اسے پائے گا، یا کسی عورت کے لئے ہو، کہ اس سے نکاح کرے تو اس کی ہجرت اسی چیز کی طرف شمار ہوگی جس کے لئے ہجرت کی ہو۔<urdute>
 
-       <ents>At the Avalon, the crowd fell silent while a woman prayed: �Thank you for giving us a President who will, with your help, restore
-       this nation to her former glory, the way you created her.� Less than two weeks later, the Deplorables effectively took over the county Republican
-       leadership, with members winning three positions, including the chair. Others looked farther afield. �If Trump won Wisconsin, he could have won
-       Colorado,� Patterson told me. �The issues were here�immigration and energy.� He believed that without the infighting of the last campaign they
+       <ents>At the Avalon, the crowd fell silent while a woman prayed: Thank you for giving us a President who will, with your help, restore
+       this nation to her former glory, the way you created her. Less than two weeks later, the Deplorables effectively took over the county Republican
+       leadership, with members winning three positions, including the chair. Others looked farther afield. If Trump won Wisconsin, he could have won
+       Colorado, Patterson told me. The issues were here immigration and energy. He believed that without the infighting of the last campaign they
        could do better.<ente><hade>
 End_title
 
@@ -58,7 +58,7 @@ Title_1_2<ts>Much interesting title<te><ars>صحیح بخاری ۔ جلد اول
 
 <ents>In 2018, there will be an election to replace John Hickenlooper, the Democratic Colorado governor, who will vacate his seat because of term limits.
 At the DeploraBall, Patterson told me that the Republicans can win the governorship and then, two years later, deliver Colorado to Trump. He said,
-�We�re going to start on the Western Slope and do a sweep east and color it red.�<ente>
+Were going to start on the Western Slope and do a sweep east and color it red.<ente>
 End_title
 
 Title_1_3<ts>Very interesting title<te><ars>صحیح بخاری ۔ جلد اول ۔ وحی کا بیان ۔ حدیث<are>
@@ -74,8 +74,8 @@ Title_1_3<ts>Very interesting title<te><ars>صحیح بخاری ۔ جلد اول
 
 <ents>Like many parts of America that strongly supported Trump, Grand Junction is a rural place with problems that have traditionally been associated
 with urban areas. In the past three years, felony filings have increased by nearly sixty-five per cent, and there are more than twice as many open
-homicide cases as there were a decade ago. There�s an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a
-rate that�s nearly two and a half times that of the nation.<ente>
+homicide cases as there were a decade ago. Theres an epidemic of drug addiction and also of suicide: residents of Mesa County kill themselves at a
+rate thats nearly two and a half times that of the nation.<ente>
 End_title
 Title_end_title
 Book_end

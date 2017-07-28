@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SearchActivity extends Activity {
     private static final String LOG_TAG = "MyLogs";
@@ -41,6 +42,8 @@ public class SearchActivity extends Activity {
     String [] text2 = {"مسند احمد", "سنن دارمی", "مشکوۃ شریف","موطا امام مالک","شمائل ترمذی","سنن ابن ماجہ",
             "جامع ترمذی","سنن نسائی","سنن ابوداؤد","صحیح مسلم"};
     private ArrayList<String> namesBooks; // названия всех книг
+    private int[] resArray;
+    private String AllText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -149,7 +152,7 @@ public class SearchActivity extends Activity {
             }
             searchInOneBook(s);
         }else if (checkBox.isChecked()){
-            Toast.makeText(SearchActivity.this,"Search in all books",Toast.LENGTH_SHORT).show();
+            //Toast.makeText(SearchActivity.this,"Search in all books",Toast.LENGTH_SHORT).show();
             searchInAllBooks();
         }
     }//тут поиск
@@ -162,7 +165,7 @@ public class SearchActivity extends Activity {
             int index = text.indexOf(enteredWord);
             //Log.d(LOG_TAG,text);
             while (index >= 0) {
-                Log.d(LOG_TAG,index+"");
+                //Log.d(LOG_TAG,index+"");
                 listWithSearchPositions.add(index);
                 index = text.indexOf(enteredWord, index + 1);
             }
@@ -180,6 +183,80 @@ public class SearchActivity extends Activity {
     }
 
     private void searchInAllBooks() {
+        Field[] ID_Fields = R.raw.class.getFields();
+        resArray = new int[ID_Fields.length];
+        for (int i = 0; i < ID_Fields.length; i++) {
+            try {
+                resArray[i] = ID_Fields[i].getInt(null);
+                //Log.d(LOG_TAG,resArray[i]+""); // тут все индексы рессурсов
+            } catch (IllegalArgumentException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+        String enteredWord = word.getText().toString();
+        Resources res = getResources();
+        for (int j = 1; j<resArray.length-1;j++){
+            InputStream in_s = res.openRawResource(resArray[j]);
+            try {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                int i = in_s.read();
+                while (i != -1) {
+                    baos.write(i);
+                    i = in_s.read();
+                }
+                //AllText = baos.toString();
+                //Log.d(LOG_TAG, "AllText = " + AllText);
+                AllText = AllText + baos.toString();
+                in_s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if (enteredWord.equals("")){
+            Toast.makeText(SearchActivity.this,"Enter word or number of Hadith",Toast.LENGTH_SHORT).show();
+        }else if(enteredWord.contains("0")||enteredWord.contains("1")||enteredWord.contains("2")||enteredWord.contains("3")||
+                enteredWord.contains("4")||enteredWord.contains("5")||enteredWord.contains("6")||enteredWord.contains("7")||
+                enteredWord.contains("8")||enteredWord.contains("9")){
+            int index = AllText.indexOf(enteredWord);
+            String textOfHadith = "";
 
+            //Log.d(LOG_TAG,"On number");
+            while (index >= 0) {
+                listWithSearchPositions.add(index);
+                index = AllText.indexOf(enteredWord, index + 1);
+            }
+            if (AllText.contains(enteredWord)){
+                Intent intent = new Intent(SearchActivity.this,SearchListActivity.class);
+                Log.d(LOG_TAG,"AllText = " + AllText);
+                intent.putExtra("text", AllText);
+                intent.putExtra("listIndex",listWithSearchPositions);
+                startActivity(intent);
+            }else{
+                Toast.makeText(SearchActivity.this,"Nothing finds!",Toast.LENGTH_SHORT).show();
+            }
+        }else if (AllText.contains(enteredWord)){
+            int index = AllText.indexOf(enteredWord);
+            //Log.d(LOG_TAG,"index = " + index);
+            while (index >= 0) {
+                //Log.d(LOG_TAG,index+"");
+                listWithSearchPositions.add(index);
+                index = AllText.indexOf(enteredWord, index + 1);
+            }
+            if (AllText.contains(enteredWord)){
+                Intent intent = new Intent(SearchActivity.this,SearchListActivity.class);
+                intent.putExtra("text", AllText);
+                intent.putExtra("listIndex",listWithSearchPositions);
+                startActivity(intent);
+            }else{
+                Toast.makeText(SearchActivity.this,"Nothing finds!",Toast.LENGTH_SHORT).show();
+            }
+        }else{
+            Toast.makeText(SearchActivity.this,"Not find!",Toast.LENGTH_SHORT).show();
+        }
+        /*Intent intent = new Intent(SearchActivity.this,SearchListActivity.class);
+        intent.putExtra("identificators",resArray);
+        startActivity(intent);*/
     } // поиск по всем книгам
 }

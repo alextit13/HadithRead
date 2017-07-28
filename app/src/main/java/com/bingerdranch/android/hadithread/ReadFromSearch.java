@@ -33,34 +33,6 @@ public class ReadFromSearch extends Activity {
 
         Intent intent = getIntent();
         String text = intent.getStringExtra("text");
-        //int position = intent.getIntExtra("item_word",0);
-
-        /*PostScroller ps = new PostScroller(scroll, 0, position); //pos - позиция кнопки
-        scroll.post(ps);
-
-        Spannable span = new SpannableString(allText);
-        if (position<span.length()-21){
-            span.setSpan(new ForegroundColorSpan(Color.YELLOW),position,position+20, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        }*/
         textFromSearch.setText(text);
-
-
-
-
-    }
-    class PostScroller implements Runnable
-    {
-        private View view;
-        private int x, y;
-        PostScroller(View view, int x, int y)
-        {
-            this.view = view;
-            this.x = x;
-            this.y = y;
-        }
-        public void run()
-        {
-            view.scrollTo(x, y);
-        }
     }
 }
