@@ -19,7 +19,6 @@
         <activity
             android:name=".ParthActivity"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".TextActivity" />
         <activity
             android:name=".SearchActivity"
             android:parentActivityName=".MainActivity"

@@ -1,40 +1,36 @@
 package com.bingerdranch.android.hadithread;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.StringTokenizer;
 
+import static android.content.Context.MODE_PRIVATE;
 import static android.provider.Telephony.Mms.Part.FILENAME;
 
 public class MainActivity extends Activity {
@@ -52,6 +48,11 @@ public class MainActivity extends Activity {
     private String ATTRIBUTE_NAME_IMAGE = "image";
     private String ATTRIBUTE_NAME_TEXT2 = "text2";
 
+    final String FILENAME = "file";
+
+    final String DIR_SD = "MyFiles";
+    final String FILENAME_SD = "fileSD";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +61,16 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         listViewBooks = (ListView) findViewById(R.id.list_view_books);
         listForBooks = new ArrayList<>();
-        String [] text = {"Sunnah Ibn Majah","Comprehensive modification","Golden feminine", "Sunnah Abu Dawood",
+        String [] text = {"Sahih Muslim","Comprehensive modification","Golden feminine", "Sunnah Abu Dawood",
                 "Right Muslim","Sahih Bukhari","Sunni","Mushrikah Sharif","Motta Imam Boss","Shamal Tirmizi"};
         String [] text2 = {"مسند احمد", "سنن دارمی", "مشکوۃ شریف","موطا امام مالک","شمائل ترمذی","سنن ابن ماجہ",
                 "جامع ترمذی","سنن نسائی","سنن ابوداؤد","صحیح مسلم"};
         int [] img = {R.drawable.book_red,R.drawable.book_mehroon,R.drawable.book_green,R.drawable.book_blue,
                         R.drawable.aqua,R.drawable.brown,R.drawable.orange, R.drawable.pink,R.drawable.green,R.drawable.book_mehroon};
         ArrayList<Map<String, Object>> data = new ArrayList<>(text.length);
+        TestThread testThread = new TestThread();
+        testThread.baseCont(getBaseContext());
+        testThread.execute();
         Map<String, Object> m;
         for (int i= 0; i<text.length;i++){
             m = new HashMap<String, Object>();
@@ -94,42 +98,6 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
-    }
-
-    public void downloadAllTextsForSearch(){
-                Resources r = getResources();
-                InputStream is1 = r.openRawResource(R.raw.a_book_one);
-                iSMeth(is1);
-                InputStream is2 = r.openRawResource(R.raw.b_book_two);
-                iSMeth(is2);
-                InputStream is3 = r.openRawResource(R.raw.c_book_three);
-                iSMeth(is3);
-                InputStream is4 = r.openRawResource(R.raw.d_book_four);
-                iSMeth(is4);
-                InputStream is5 = r.openRawResource(R.raw.e_book_five);
-                iSMeth(is5);
-                InputStream is6 = r.openRawResource(R.raw.f_book_six);
-                iSMeth(is6);
-                InputStream is7 = r.openRawResource(R.raw.g_book_seven);
-                iSMeth(is7);
-                InputStream is8 = r.openRawResource(R.raw.h_book_eight);
-                iSMeth(is8);
-                InputStream is9 = r.openRawResource(R.raw.m_book_nine);
-                iSMeth(is9);
-                InputStream is10 = r.openRawResource(R.raw.n_book_ten);
-                iSMeth(is10);
-    }
-
-    void iSMeth(InputStream is){
-        byte[] b = new byte[0];
-        try {
-            b = new byte[is.available()];
-            is.read(b);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        texts = new String(b);
-        ALL_BOOK_TEXTS.add(texts);
     }
 
     @Override
@@ -213,5 +181,220 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
              e.printStackTrace();
         }
+    }
+}
+
+class TestThread extends AsyncTask<Void,Void, String> {
+
+    Context baseContext;
+
+
+    private static final String LOG_TAG = "MyLogs";
+
+    public void baseCont (Context context){
+        baseContext = context;
+    }
+
+    @Override
+    protected String doInBackground(Void... params) {
+        String textOnFile;
+        String arabTexts;
+
+        Resources res = baseContext.getResources();
+        InputStream in_s = null;
+        InputStream in_arab = null;
+
+        in_s = res.openRawResource(R.raw.test_en);
+        in_arab = res.openRawResource(R.raw.test_ar);
+
+        byte[] b = new byte[0];
+        byte[] arab = new byte[0];
+        try {
+            b = new byte[in_s.available()];
+            arab = new byte[in_arab.available()];
+
+            in_s.read(b);
+            in_arab.read(arab);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        textOnFile = new String(b);// тут весь текст с выбранной книги
+        arabTexts = new String(arab); // тут весь текст на арабском
+
+        ArrayList <String> listHad = new ArrayList<>();
+        ArrayList <String> listArab = new ArrayList<>();
+
+        textOnFile = textOnFile.replaceAll("<item","@");
+        arabTexts = arabTexts.replaceAll("<item","@");
+
+        textOnFile = textOnFile.replaceAll("</item>","№");
+        arabTexts = arabTexts.replaceAll("</item>","№");
+
+        //Log.d(LOG_TAG,arabTexts);
+
+        char[]arr = textOnFile.toCharArray();
+        char[]arrArab = arabTexts.toCharArray();
+
+        int k = 0;
+        for (int i = 0; i<arr.length;i++){
+            if (arr[i]=='@'){
+                k++;
+                String s = textOnFile.substring(i, textOnFile.indexOf('№',i));
+                s = s.substring(2,s.length());
+                s = k + " " + s;
+                listHad.add(s);
+            }
+        }
+
+        for (int i = 0; i<arrArab.length;i++){
+            if (arrArab[i]=='@'){
+                String s1 = arabTexts.substring(i, arabTexts.indexOf('№',i));
+                listArab.add(s1);
+            }
+        }
+
+        ArrayList<String> tom1 = new ArrayList<>();
+        //ArrayList<String> tom2 = new ArrayList<>();
+        ArrayList<String> tom3 = new ArrayList<>();
+        ArrayList<String> tom4 = new ArrayList<>();
+        ArrayList<String> tom5 = new ArrayList<>();
+        ArrayList<String> tom6 = new ArrayList<>();
+        //ArrayList<String> tom7 = new ArrayList<>();
+        //ArrayList<String> tom8 = new ArrayList<>();
+        ArrayList<String> tom9 = new ArrayList<>();
+        ArrayList<String> tom10 = new ArrayList<>();
+        ArrayList<String> tom11= new ArrayList<>();
+        ArrayList<String> tom12 = new ArrayList<>();
+        ArrayList<String> tom13 = new ArrayList<>();
+        ArrayList<String> tom14 = new ArrayList<>();
+        ArrayList<String> tom15 = new ArrayList<>();
+        ArrayList<String> tom16 = new ArrayList<>();
+
+
+        int num = 0;
+        for (int i = 0; i<listHad.size();i++){
+            num++;
+            if (i<180){
+                tom1.add(num + " " + listHad.get(i) + "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom1.get(i));
+            }
+            if (i>=180&&i<=246){
+                num = 1;
+                tom3.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom3.get(i));
+            }
+            if (i>=247&&i<=297){
+                num = 598;
+                tom4.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom4.get(i));
+            }
+            if (i>=298&&i<=355){
+                num = 650;
+                tom5.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom5.get(i));
+            }
+            if (i>=356&&i<=429){
+                num = 1;
+                tom6.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom6.get(i));
+            }
+            if (i>=430&&i<=476){
+                num = 1169;
+                tom9.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom9.get(i));
+            }
+            if (i>=477&&i<=534){
+                num = 1205;
+                tom10.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom10.get(i));
+            }
+            if (i>=635&&i<=597){
+                num = 1271;
+                tom11.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom11.get(i));
+            }
+            if (i>=598&&i<=642){
+                num = 1319;
+                tom12.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom12.get(i));
+            }if (i>=643&&i<=665){
+                num = 1;
+                tom13.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom13.get(i));
+            }
+            if (i>=666&&i<=701){
+                num = 1;
+                tom14.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom14.get(i));
+            }
+            if (i>=702&&i<=721){
+                num = 1418;
+                tom15.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom15.get(i));
+            }
+            if (i>=772&&i<=862){
+                num = 1437;
+                tom16.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
+                //Log.d(LOG_TAG,tom16.get(i));
+            }
+        }
+
+        ArrayList <ArrayList<String>> listInList = new ArrayList<>();
+
+        listInList.add(tom1);
+        listInList.add(tom3);
+        listInList.add(tom4);
+        listInList.add(tom5);
+        listInList.add(tom6);
+        listInList.add(tom9);
+        listInList.add(tom10);
+        listInList.add(tom11);
+        listInList.add(tom12);
+        listInList.add(tom13);
+        listInList.add(tom14);
+        listInList.add(tom15);
+        listInList.add(tom16);
+
+        Log.d(LOG_TAG,tom1.size()+"");
+        Log.d(LOG_TAG,tom3.size()+"");
+
+        File file = new File("...raw/po.txt");
+
+        try {
+            //проверяем, что если файл не существует то создаем его
+            if(!file.exists()){
+                file.createNewFile();
+            }
+
+            //PrintWriter обеспечит возможности записи в файл
+            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
+
+            try {
+                //Записываем текст у файл
+                for (int i = 0; i<listInList.size();i++){
+                    for (int j = 0; j < listInList.get(i).size();j++){
+                        String text = listInList.get(i).get(j);
+
+                        Log.d(LOG_TAG,text);
+                    }
+                }
+                out.print("Жопа");
+
+            } finally {
+                //После чего мы должны закрыть файл
+                //Иначе файл не запишется
+                out.close();
+            }
+        } catch(IOException e) {
+
+        }
+
+
+
+
+
+
+
+        return null;
     }
 }
