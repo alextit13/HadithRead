@@ -1,9 +1,11 @@
 package com.bingerdranch.android.hadithread;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.ApplicationInfo;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -47,11 +49,9 @@ public class MainActivity extends Activity {
     private String ATTRIBUTE_NAME_TEXT = "text";
     private String ATTRIBUTE_NAME_IMAGE = "image";
     private String ATTRIBUTE_NAME_TEXT2 = "text2";
+    private  ArrayList <ArrayList<String>> listInList;
 
-    final String FILENAME = "file";
 
-    final String DIR_SD = "MyFiles";
-    final String FILENAME_SD = "fileSD";
 
 
     @Override
@@ -70,7 +70,10 @@ public class MainActivity extends Activity {
         ArrayList<Map<String, Object>> data = new ArrayList<>(text.length);
         TestThread testThread = new TestThread();
         testThread.baseCont(getBaseContext());
-        testThread.execute();
+        testThread.doInBackground();
+
+        listInList = testThread.returnListInList();
+
         Map<String, Object> m;
         for (int i= 0; i<text.length;i++){
             m = new HashMap<String, Object>();
@@ -79,6 +82,9 @@ public class MainActivity extends Activity {
             m.put(ATTRIBUTE_NAME_IMAGE,img[i]);
             data.add(m);
         }
+        //
+        write();
+        //
         String [] from = {ATTRIBUTE_NAME_TEXT,ATTRIBUTE_NAME_IMAGE, ATTRIBUTE_NAME_TEXT2};
         int [] to = {R.id.text_book1,R.id.image_book, R.id.text_book2};
         SimpleAdapter sAdapter = new SimpleAdapter(MainActivity.this, data, R.layout.item,from,to);
@@ -98,6 +104,37 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void write() {
+
+        final String LOG_TAG = "MyLogs";
+        final String FILE_NAME = "content.txt";
+        FileOutputStream fos = null;
+        Log.d(LOG_TAG, "Метод сработал");
+        try {
+            for (int i = 0; i<listInList.size();i++){
+                for(int j = 0; j<listInList.get(i).size();j++){
+                    String text = listInList.get(i).get(j);
+                    fos = openFileOutput(FILE_NAME, MODE_APPEND);
+                    fos.write(text.getBytes());
+                }
+            }
+            Log.d(LOG_TAG, "Save");
+        }
+        catch(IOException ex) {
+            Log.d(LOG_TAG, "Error");
+        }
+        finally{
+            try{
+                if(fos!=null)
+                    fos.close();
+            }
+            catch(IOException ex){
+                Log.d(LOG_TAG, "Error 2");
+            }
+        }
+
     }
 
     @Override
@@ -181,220 +218,14 @@ public class MainActivity extends Activity {
         } catch (Exception e) {
              e.printStackTrace();
         }
-    }
-}
-
-class TestThread extends AsyncTask<Void,Void, String> {
-
-    Context baseContext;
 
 
-    private static final String LOG_TAG = "MyLogs";
+        Log.d(LOG_TAG,listInList.size()+"");
 
-    public void baseCont (Context context){
-        baseContext = context;
-    }
-
-    @Override
-    protected String doInBackground(Void... params) {
-        String textOnFile;
-        String arabTexts;
-
-        Resources res = baseContext.getResources();
-        InputStream in_s = null;
-        InputStream in_arab = null;
-
-        in_s = res.openRawResource(R.raw.test_en);
-        in_arab = res.openRawResource(R.raw.test_ar);
-
-        byte[] b = new byte[0];
-        byte[] arab = new byte[0];
-        try {
-            b = new byte[in_s.available()];
-            arab = new byte[in_arab.available()];
-
-            in_s.read(b);
-            in_arab.read(arab);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        textOnFile = new String(b);// тут весь текст с выбранной книги
-        arabTexts = new String(arab); // тут весь текст на арабском
-
-        ArrayList <String> listHad = new ArrayList<>();
-        ArrayList <String> listArab = new ArrayList<>();
-
-        textOnFile = textOnFile.replaceAll("<item","@");
-        arabTexts = arabTexts.replaceAll("<item","@");
-
-        textOnFile = textOnFile.replaceAll("</item>","№");
-        arabTexts = arabTexts.replaceAll("</item>","№");
-
-        //Log.d(LOG_TAG,arabTexts);
-
-        char[]arr = textOnFile.toCharArray();
-        char[]arrArab = arabTexts.toCharArray();
-
-        int k = 0;
-        for (int i = 0; i<arr.length;i++){
-            if (arr[i]=='@'){
-                k++;
-                String s = textOnFile.substring(i, textOnFile.indexOf('№',i));
-                s = s.substring(2,s.length());
-                s = k + " " + s;
-                listHad.add(s);
+        for (int i = 0; i<listInList.size();i++){
+            for (int j = 0; j<listInList.get(i).size();j++){
+                Log.d(LOG_TAG,listInList.get(i).get(j));
             }
         }
-
-        for (int i = 0; i<arrArab.length;i++){
-            if (arrArab[i]=='@'){
-                String s1 = arabTexts.substring(i, arabTexts.indexOf('№',i));
-                listArab.add(s1);
-            }
-        }
-
-        ArrayList<String> tom1 = new ArrayList<>();
-        //ArrayList<String> tom2 = new ArrayList<>();
-        ArrayList<String> tom3 = new ArrayList<>();
-        ArrayList<String> tom4 = new ArrayList<>();
-        ArrayList<String> tom5 = new ArrayList<>();
-        ArrayList<String> tom6 = new ArrayList<>();
-        //ArrayList<String> tom7 = new ArrayList<>();
-        //ArrayList<String> tom8 = new ArrayList<>();
-        ArrayList<String> tom9 = new ArrayList<>();
-        ArrayList<String> tom10 = new ArrayList<>();
-        ArrayList<String> tom11= new ArrayList<>();
-        ArrayList<String> tom12 = new ArrayList<>();
-        ArrayList<String> tom13 = new ArrayList<>();
-        ArrayList<String> tom14 = new ArrayList<>();
-        ArrayList<String> tom15 = new ArrayList<>();
-        ArrayList<String> tom16 = new ArrayList<>();
-
-
-        int num = 0;
-        for (int i = 0; i<listHad.size();i++){
-            num++;
-            if (i<180){
-                tom1.add(num + " " + listHad.get(i) + "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom1.get(i));
-            }
-            if (i>=180&&i<=246){
-                num = 1;
-                tom3.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom3.get(i));
-            }
-            if (i>=247&&i<=297){
-                num = 598;
-                tom4.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom4.get(i));
-            }
-            if (i>=298&&i<=355){
-                num = 650;
-                tom5.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom5.get(i));
-            }
-            if (i>=356&&i<=429){
-                num = 1;
-                tom6.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom6.get(i));
-            }
-            if (i>=430&&i<=476){
-                num = 1169;
-                tom9.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom9.get(i));
-            }
-            if (i>=477&&i<=534){
-                num = 1205;
-                tom10.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom10.get(i));
-            }
-            if (i>=635&&i<=597){
-                num = 1271;
-                tom11.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom11.get(i));
-            }
-            if (i>=598&&i<=642){
-                num = 1319;
-                tom12.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom12.get(i));
-            }if (i>=643&&i<=665){
-                num = 1;
-                tom13.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom13.get(i));
-            }
-            if (i>=666&&i<=701){
-                num = 1;
-                tom14.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom14.get(i));
-            }
-            if (i>=702&&i<=721){
-                num = 1418;
-                tom15.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom15.get(i));
-            }
-            if (i>=772&&i<=862){
-                num = 1437;
-                tom16.add(num + " " + listHad.get(i)+ "\n" + listArab.get(i) + "\n" + listArab.get(i));
-                //Log.d(LOG_TAG,tom16.get(i));
-            }
-        }
-
-        ArrayList <ArrayList<String>> listInList = new ArrayList<>();
-
-        listInList.add(tom1);
-        listInList.add(tom3);
-        listInList.add(tom4);
-        listInList.add(tom5);
-        listInList.add(tom6);
-        listInList.add(tom9);
-        listInList.add(tom10);
-        listInList.add(tom11);
-        listInList.add(tom12);
-        listInList.add(tom13);
-        listInList.add(tom14);
-        listInList.add(tom15);
-        listInList.add(tom16);
-
-        Log.d(LOG_TAG,tom1.size()+"");
-        Log.d(LOG_TAG,tom3.size()+"");
-
-        File file = new File("...raw/po.txt");
-
-        try {
-            //проверяем, что если файл не существует то создаем его
-            if(!file.exists()){
-                file.createNewFile();
-            }
-
-            //PrintWriter обеспечит возможности записи в файл
-            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
-
-            try {
-                //Записываем текст у файл
-                for (int i = 0; i<listInList.size();i++){
-                    for (int j = 0; j < listInList.get(i).size();j++){
-                        String text = listInList.get(i).get(j);
-
-                        Log.d(LOG_TAG,text);
-                    }
-                }
-                out.print("Жопа");
-
-            } finally {
-                //После чего мы должны закрыть файл
-                //Иначе файл не запишется
-                out.close();
-            }
-        } catch(IOException e) {
-
-        }
-
-
-
-
-
-
-
-        return null;
     }
 }
